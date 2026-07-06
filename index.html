@@ -1,2210 +1,1024 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dev Blue Tech — أنظمة رقمية ذكية للمطاعم والكافيهات والأعمال التجارية في مصر. مواقع، كاشير، QR، إدارة مخزون، موبايل أبليكيشن.">
-<meta name="keywords" content="برمجة مطاعم, سيستم كافيه, كاشير, QR, موقع مطعم, مصر, Dev Blue Tech, تصميم مواقع, أنظمة إدارة, POS, موبايل ابليكيشن">
-<meta property="og:title" content="Dev Blue Tech — أنظمة رقمية للأعمال">
-<meta property="og:description" content="بنحول أعمالك التجارية لتجربة رقمية احترافية">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#0A0E1A">
-<title>Dev Blue Tech — أنظمة رقمية ذكية | Transforming Ideas Into Technology</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- SEO Meta Tags -->
+  <title>Dev Blue Tech — We Build Digital Products That Matter</title>
+  <meta name="description" content="Dev Blue Tech is a premium software agency specializing in web development, mobile apps, UI/UX design, AI solutions, cloud services, and cybersecurity. We transform ideas into world-class technology.">
+  <meta name="keywords" content="software agency, web development, mobile apps, UI/UX design, AI solutions, cloud services, cybersecurity, API development, Dev Blue Tech">
+  <meta name="author" content="Dev Blue Tech">
+  <meta name="robots" content="index, follow">
 
-<style>
-  /* ===== TOKENS ===== */
-  :root {
-    --navy:    #0A0E1A;
-    --navy2:   #080b16;
-    --blue:    #0057FF;
-    --cyan:    #00C2FF;
-    --light:   #F0F4FF;
-    --white:   #FFFFFF;
-    --gray:    #8A96B0;
-    --card-bg: #0D1424;
-    --border:  rgba(0,87,255,0.18);
-    --glow:    0 0 40px rgba(0,87,255,0.25);
-    --gold:    #FFD700;
-    --green:   #25D366;
-    --red:     #FF4757;
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dev Blue Tech — We Build Digital Products That Matter">
+  <meta property="og:description" content="Premium software agency delivering web apps, mobile apps, AI solutions, and cloud services that drive business growth.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devbluetech.com">
+  <meta property="og:image" content="assets/logo.png">
 
-    --font-ar: 'Cairo', sans-serif;
-    --font-en: 'Space Grotesk', sans-serif;
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dev Blue Tech — We Build Digital Products That Matter">
+  <meta name="twitter:description" content="Premium software agency delivering web apps, mobile apps, AI solutions, and cloud services.">
 
-    --r-sm: 12px;
-    --r-md: 20px;
-    --r-lg: 32px;
-  }
+  <!-- Theme -->
+  <meta name="theme-color" content="#020617">
+  <link rel="icon" href="assets/logo.png" type="image/png">
 
-  /* ===== RESET ===== */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--font-ar);
-    background: var(--navy);
-    color: var(--white);
-    overflow-x: hidden;
-    line-height: 1.7;
-  }
-  img { max-width: 100%; display: block; }
-  a { text-decoration: none; color: inherit; }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-  /* ===== SCROLLBAR ===== */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--navy); }
-  ::-webkit-scrollbar-thumb { background: linear-gradient(var(--blue), var(--cyan)); border-radius: 3px; }
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
 
-  /* ===== MODERN BACKGROUND ===== */
-  .bg-elements {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: radial-gradient(circle at 50% 50%, #0c1222 0%, var(--navy) 100%);
-    overflow: hidden;
-  }
-  .bg-glow-1 {
-    position: absolute;
-    width: 80vw;
-    height: 80vw;
-    background: radial-gradient(circle, rgba(0,87,255,0.06) 0%, transparent 60%);
-    top: -40vh;
-    right: -20vw;
-    border-radius: 50%;
-    animation: slowDrift 20s ease-in-out infinite alternate;
-  }
-  .bg-glow-2 {
-    position: absolute;
-    width: 60vw;
-    height: 60vw;
-    background: radial-gradient(circle, rgba(0,194,255,0.05) 0%, transparent 60%);
-    bottom: -30vh;
-    left: -10vw;
-    border-radius: 50%;
-    animation: slowDrift2 25s ease-in-out infinite alternate;
-  }
-  @keyframes slowDrift { 100% { transform: translate(-10%, 10%); } }
-  @keyframes slowDrift2 { 100% { transform: translate(10%, -10%); } }
-
-  /* ===== UTILITY ===== */
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
-  .section { padding: 100px 0; position: relative; z-index: 2; }
-  .section-label {
-    font-family: var(--font-en);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 16px;
-    display: inline-block;
-    background: rgba(0,194,255,0.08);
-    padding: 6px 16px;
-    border-radius: 100px;
-    border: 1px solid rgba(0,194,255,0.15);
-  }
-  .section-title {
-    font-size: clamp(28px, 4.5vw, 52px);
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: var(--white);
-  }
-  .section-subtitle {
-    font-size: 17px;
-    color: var(--gray);
-    max-width: 560px;
-    line-height: 1.9;
-  }
-  .highlight { color: var(--cyan); }
-  .gradient-text {
-    background: linear-gradient(135deg, var(--blue), var(--cyan), #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, var(--blue), #0046d4);
-    color: var(--white);
-    padding: 15px 34px;
-    border-radius: var(--r-sm);
-    font-family: var(--font-ar);
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-    box-shadow: 0 4px 24px rgba(0,87,255,0.35);
-    will-change: transform;
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-    transition: left 0.5s;
-  }
-  .btn-primary:hover::before { left: 100%; }
-  .btn-primary:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 40px rgba(0,87,255,0.5);
-  }
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.03);
-    color: var(--white);
-    padding: 14px 30px;
-    border-radius: var(--r-sm);
-    font-family: var(--font-ar);
-    font-size: 16px;
-    font-weight: 600;
-    border: 1.5px solid var(--border);
-    cursor: pointer;
-    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-    backdrop-filter: blur(8px);
-  }
-  .btn-ghost:hover {
-    border-color: var(--cyan);
-    color: var(--cyan);
-    background: rgba(0,194,255,0.06);
-    transform: translateY(-2px);
-  }
-  .btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #25D366, #1eb558);
-    color: white;
-    padding: 15px 34px;
-    border-radius: var(--r-sm);
-    font-family: var(--font-ar);
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-    box-shadow: 0 4px 24px rgba(37,211,102,0.3);
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-whatsapp::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-    transition: left 0.5s;
-  }
-  .btn-whatsapp:hover::before { left: 100%; }
-  .btn-whatsapp:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 40px rgba(37,211,102,0.45); }
-
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-
-  /* ===== NAVBAR ===== */
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 14px 0;
-    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-    border-bottom: 1px solid transparent;
-  }
-  .navbar.scrolled {
-    background: rgba(10,14,26,0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom-color: var(--border);
-    padding: 8px 0;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  }
-  .navbar .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.3s;
-  }
-  .logo:hover { transform: scale(1.03); }
-  .logo-img {
-    height: 46px;
-    width: auto;
-    object-fit: contain;
-    animation: logoFadeIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  @keyframes logoFadeIn { to { opacity: 1; transform: translateY(0); } }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gray);
-    transition: all 0.3s;
-    position: relative;
-    padding: 4px 0;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--blue), var(--cyan));
-    transition: width 0.35s cubic-bezier(0.4,0,0.2,1);
-    border-radius: 2px;
-  }
-  .nav-links a:hover { color: var(--white); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-cta { display: flex; align-items: center; gap: 12px; }
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    z-index: 1001;
-  }
-  .hamburger span {
-    width: 24px;
-    height: 2px;
-    background: var(--white);
-    border-radius: 2px;
-    transition: all 0.3s;
-  }
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(10,14,26,0.98);
-    backdrop-filter: blur(24px);
-    z-index: 999;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--white);
-    transition: all 0.3s;
-  }
-  .mobile-menu a:hover { color: var(--cyan); transform: scale(1.05); }
-  .mobile-close {
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    font-size: 28px;
-    cursor: pointer;
-    color: var(--gray);
-    transition: all 0.3s;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-  }
-  .mobile-close:hover { color: var(--white); background: rgba(255,255,255,0.1); }
-
-  /* ===== HERO ===== */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding-top: 80px;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 50% -10%, rgba(0,87,255,0.25) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 80% 60%, rgba(0,194,255,0.1) 0%, transparent 60%),
-      radial-gradient(ellipse 30% 30% at 20% 80%, rgba(167,139,250,0.06) 0%, transparent 60%);
-  }
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,87,255,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,87,255,0.06) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
-    animation: gridShift 20s linear infinite;
-  }
-  @keyframes gridShift {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(60px, 60px); }
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(0,87,255,0.1);
-    border: 1px solid rgba(0,87,255,0.25);
-    padding: 10px 22px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--cyan);
-    margin-bottom: 36px;
-    backdrop-filter: blur(8px);
-    animation: badgeGlow 3s ease-in-out infinite;
-  }
-  @keyframes badgeGlow {
-    0%, 100% { box-shadow: 0 0 0 rgba(0,194,255,0); }
-    50% { box-shadow: 0 0 20px rgba(0,194,255,0.15); }
-  }
-  .hero-badge .pulse-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-    box-shadow: 0 0 8px rgba(37,211,102,0.5);
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.5); }
-  }
-  .hero-title {
-    font-size: clamp(36px, 6vw, 72px);
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 28px;
-    letter-spacing: -1px;
-  }
-  .hero-sub {
-    font-size: 18px;
-    color: var(--gray);
-    margin-bottom: 44px;
-    line-height: 2;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 72px;
-  }
-  .hero-stats {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 48px;
-    padding: 32px 48px;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    backdrop-filter: blur(12px);
-  }
-  .stat-item { text-align: center; }
-  .stat-num {
-    font-family: var(--font-en);
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-num span { color: var(--cyan); }
-  .stat-label { font-size: 13px; color: var(--gray); }
-  .stat-divider { width: 1px; height: 44px; background: var(--border); }
-
-  /* ===== FLOATING ORBS ===== */
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.4;
-    animation: orbFloat 8s ease-in-out infinite;
-    pointer-events: none;
-  }
-  .orb-1 { width: 400px; height: 400px; background: var(--blue); top: 10%; right: -10%; animation-delay: 0s; }
-  .orb-2 { width: 300px; height: 300px; background: var(--cyan); bottom: 20%; left: -5%; animation-delay: -3s; }
-  .orb-3 { width: 200px; height: 200px; background: #a78bfa; top: 50%; left: 30%; animation-delay: -5s; }
-  @keyframes orbFloat {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(30px, -20px) scale(1.1); }
-    50% { transform: translate(-20px, 30px) scale(0.9); }
-    75% { transform: translate(20px, 20px) scale(1.05); }
-  }
-
-  /* ===== CLIENTS MARQUEE ===== */
-  .clients-section {
-    padding: 40px 0;
-    background: rgba(0,87,255,0.02);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    overflow: hidden;
-    position: relative;
-    z-index: 2;
-  }
-  .clients-label {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 24px;
-  }
-  .marquee-wrap { overflow: hidden; }
-  .marquee-track {
-    display: flex;
-    animation: marquee 35s linear infinite;
-    gap: 24px;
-    width: max-content;
-  }
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .client-badge {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(13,20,36,0.8);
-    border: 1px solid var(--border);
-    padding: 12px 24px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gray);
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: all 0.3s;
-    backdrop-filter: blur(4px);
-  }
-  .client-badge:hover { border-color: var(--blue); color: var(--white); }
-  .client-badge .emoji { font-size: 20px; }
-
-  /* ===== SERVICES ===== */
-  .services { background: transparent; }
-  .services-header { margin-bottom: 56px; }
-  .service-card {
-    background: rgba(13,20,36,0.7);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    padding: 36px;
-    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(8px);
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--blue), var(--cyan));
-    transform: scaleX(0);
-    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-    transform-origin: right;
-  }
-  .service-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 0%, rgba(0,87,255,0.08) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s;
-  }
-  .service-card:hover { border-color: rgba(0,87,255,0.4); transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,87,255,0.15); }
-  .service-card:hover::before { transform: scaleX(1); transform-origin: left; }
-  .service-card:hover::after { opacity: 1; }
-  .service-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, rgba(0,87,255,0.15), rgba(0,194,255,0.1));
-    border: 1px solid rgba(0,87,255,0.2);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    margin-bottom: 22px;
-    transition: all 0.3s;
-    position: relative;
-    z-index: 1;
-  }
-  .service-card:hover .service-icon {
-    background: linear-gradient(135deg, rgba(0,87,255,0.25), rgba(0,194,255,0.2));
-    transform: scale(1.1) rotate(-3deg);
-    box-shadow: 0 8px 24px rgba(0,87,255,0.2);
-  }
-  .service-name {
-    font-size: 19px;
-    font-weight: 800;
-    margin-bottom: 10px;
-    color: var(--white);
-    position: relative;
-    z-index: 1;
-  }
-  .service-desc {
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.8;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
-  .service-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: relative;
-    z-index: 1;
-  }
-  .service-features li {
-    font-size: 13px;
-    color: var(--gray);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: color 0.2s;
-  }
-  .service-card:hover .service-features li { color: #a0aec0; }
-  .service-features li::before {
-    content: '✓';
-    color: var(--cyan);
-    font-weight: 700;
-    font-size: 12px;
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    background: rgba(0,194,255,0.08);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .service-price {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    z-index: 1;
-  }
-  .service-price-text { font-size: 13px; color: var(--gray); }
-  .service-price strong { color: var(--cyan); font-size: 17px; }
-  .service-price-badge {
-    background: linear-gradient(135deg, rgba(0,194,255,0.12), rgba(0,87,255,0.12));
-    color: var(--cyan);
-    font-size: 11px;
-    font-weight: 700;
-    padding: 5px 14px;
-    border-radius: 100px;
-    border: 1px solid rgba(0,194,255,0.2);
-  }
-  .discount-badge {
-    background: linear-gradient(135deg, var(--red), #e84057);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 6px;
-    margin-right: 8px;
-    animation: discountPulse 2s ease-in-out infinite;
-  }
-  @keyframes discountPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-
-  /* ===== PROCESS ===== */
-  .process { background: transparent; position: relative; }
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    position: relative;
-    margin-top: 56px;
-  }
-  .process-steps::before {
-    content: '';
-    position: absolute;
-    top: 32px;
-    right: 12.5%;
-    left: 12.5%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), transparent);
-  }
-  .step {
-    text-align: center;
-    padding: 0 16px;
-    position: relative;
-  }
-  .step-num {
-    width: 64px;
-    height: 64px;
-    background: rgba(13,20,36,0.9);
-    border: 2px solid var(--blue);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-en);
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--cyan);
-    margin: 0 auto 22px;
-    position: relative;
-    z-index: 1;
-    transition: all 0.4s;
-    backdrop-filter: blur(8px);
-  }
-  .step:hover .step-num {
-    background: linear-gradient(135deg, var(--blue), var(--cyan));
-    color: var(--white);
-    box-shadow: 0 0 30px rgba(0,87,255,0.4);
-    transform: scale(1.1);
-    border-color: var(--cyan);
-  }
-  .step-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-  .step-desc { font-size: 13px; color: var(--gray); line-height: 1.8; }
-
-  /* ===== PORTFOLIO ===== */
-  .portfolio { background: transparent; }
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-  .portfolio-card {
-    background: rgba(13,20,36,0.7);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-    backdrop-filter: blur(8px);
-  }
-  .portfolio-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,87,255,0.15); border-color: rgba(0,87,255,0.4); }
-  .portfolio-thumb {
-    height: 200px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  /* CSS Mockup Screens */
-  .mockup-screen {
-    width: 85%;
-    height: 75%;
-    background: #111827;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.08);
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-  }
-  .portfolio-card:hover .mockup-screen { transform: scale(1.05) translateY(-4px); }
-  .mockup-bar {
-    height: 22px;
-    background: #1f2937;
-    display: flex;
-    align-items: center;
-    padding: 0 8px;
-    gap: 4px;
-  }
-  .mockup-dot { width: 6px; height: 6px; border-radius: 50%; }
-  .mockup-dot:nth-child(1) { background: #ef4444; }
-  .mockup-dot:nth-child(2) { background: #f59e0b; }
-  .mockup-dot:nth-child(3) { background: #22c55e; }
-  .mockup-body { padding: 8px; height: calc(100% - 22px); }
-  .mockup-nav { height: 12px; background: rgba(0,87,255,0.2); border-radius: 3px; margin-bottom: 6px; }
-  .mockup-hero-block { height: 35%; background: linear-gradient(135deg, rgba(0,87,255,0.3), rgba(0,194,255,0.2)); border-radius: 4px; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; }
-  .mockup-hero-block span { font-size: 18px; }
-  .mockup-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 4px;
-    height: 40%;
-  }
-  .mockup-item { background: rgba(255,255,255,0.05); border-radius: 3px; }
-
-  .portfolio-thumb::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 50%, rgba(13,20,36,0.9) 100%);
-    pointer-events: none;
-  }
-  .portfolio-body { padding: 20px 24px 24px; }
-  .portfolio-tag {
-    display: inline-block;
-    background: rgba(0,87,255,0.12);
-    color: var(--cyan);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 4px 12px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-  .portfolio-name { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-  .portfolio-desc { font-size: 13px; color: var(--gray); line-height: 1.7; margin-bottom: 16px; }
-  .portfolio-link {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--blue);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.3s;
-  }
-  .portfolio-link:hover { gap: 12px; color: var(--cyan); }
-
-  /* ===== PRICING ===== */
-  .pricing { background: transparent; position: relative; }
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-    align-items: start;
-  }
-  .pricing-card {
-    background: rgba(13,20,36,0.7);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    padding: 40px;
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-    backdrop-filter: blur(8px);
-  }
-  .pricing-card.featured {
-    border-color: var(--blue);
-    box-shadow: 0 0 60px rgba(0,87,255,0.15);
-    transform: scale(1.05);
-    background: rgba(13,20,36,0.9);
-  }
-  .pricing-card:hover { border-color: rgba(0,87,255,0.5); transform: translateY(-6px); }
-  .pricing-card.featured:hover { transform: scale(1.05) translateY(-6px); }
-  .pricing-badge {
-    position: absolute;
-    top: -14px;
-    right: 50%;
-    transform: translateX(50%);
-    background: linear-gradient(135deg, var(--blue), var(--cyan));
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 20px;
-    border-radius: 100px;
-    white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(0,87,255,0.3);
-  }
-  .pricing-tier { font-size: 13px; color: var(--cyan); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-  .pricing-name { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
-  .pricing-desc { font-size: 14px; color: var(--gray); margin-bottom: 28px; line-height: 1.7; }
-  .pricing-price {
-    margin-bottom: 28px;
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--border);
-  }
-  .price-amount {
-    font-family: var(--font-en);
-    font-size: 44px;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1;
-  }
-  .price-currency { font-size: 18px; color: var(--gray); }
-  .price-period { font-size: 14px; color: var(--gray); margin-top: 6px; }
-  .price-old {
-    font-size: 16px;
-    color: var(--red);
-    text-decoration: line-through;
-    margin-bottom: 4px;
-    font-family: var(--font-en);
-    opacity: 0.7;
-  }
-  .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
-  .pricing-features li {
-    font-size: 14px;
-    color: var(--gray);
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.5;
-  }
-  .pricing-features li .check { color: var(--cyan); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
-  .pricing-features li .cross { color: #444; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
-  .pricing-cta { width: 100%; text-align: center; justify-content: center; }
-
-  .pricing-extra { margin-top: 64px; text-align: center; }
-  .pricing-extra-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
-  .pricing-extra-sub { font-size: 14px; color: var(--gray); margin-bottom: 32px; }
-  .addons-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin-top: 24px;
-  }
-  .addon-card {
-    background: rgba(0,87,255,0.04);
-    border: 1px solid var(--border);
-    border-radius: var(--r-sm);
-    padding: 24px;
-    text-align: center;
-    transition: all 0.3s;
-    backdrop-filter: blur(4px);
-  }
-  .addon-card:hover { border-color: var(--blue); background: rgba(0,87,255,0.08); transform: translateY(-4px); }
-  .addon-icon { font-size: 30px; margin-bottom: 12px; }
-  .addon-name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
-  .addon-price { font-size: 13px; color: var(--cyan); font-weight: 600; }
-
-  /* ===== TECH STACK ===== */
-  .tech-section { padding: 64px 0; position: relative; z-index: 2; }
-  .tech-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    justify-content: center;
-  }
-  .tech-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(13,20,36,0.7);
-    border: 1px solid var(--border);
-    padding: 10px 20px;
-    border-radius: 100px;
-    font-family: var(--font-en);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gray);
-    transition: all 0.3s;
-    backdrop-filter: blur(4px);
-  }
-  .tech-badge:hover { border-color: var(--blue); color: var(--white); transform: translateY(-3px); box-shadow: 0 4px 16px rgba(0,87,255,0.15); }
-  .tech-dot { width: 8px; height: 8px; border-radius: 50%; }
-
-  /* ===== HIGHLIGHT BOX ===== */
-  .system-highlight { background: transparent; }
-  .highlight-box {
-    background: linear-gradient(135deg, rgba(0,87,255,0.05), rgba(0,194,255,0.02));
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    padding: 64px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(12px);
-  }
-  .highlight-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--blue), var(--cyan));
-  }
-  .highlight-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; margin-bottom: 16px; line-height: 1.4; color: var(--white); }
-  .highlight-desc { font-size: 18px; color: var(--gray); margin-bottom: 40px; }
-  .highlight-features {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-  }
-  .hf-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(13,20,36,0.8);
-    padding: 16px 24px;
-    border-radius: 100px;
-    border: 1px solid var(--border);
-    font-weight: 700;
-    font-size: 15px;
-  }
-
-  /* ===== WHY US ===== */
-  .why-us { background: transparent; }
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    margin-top: 16px;
-  }
-  .why-list { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
-  .why-item {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    transition: transform 0.3s;
-  }
-  .why-item:hover { transform: translateX(8px); }
-  .why-icon {
-    width: 52px;
-    height: 52px;
-    background: linear-gradient(135deg, rgba(0,87,255,0.12), rgba(0,194,255,0.08));
-    border: 1px solid rgba(0,87,255,0.2);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    transition: all 0.3s;
-  }
-  .why-item:hover .why-icon {
-    background: linear-gradient(135deg, rgba(0,87,255,0.25), rgba(0,194,255,0.15));
-    border-color: var(--blue);
-    transform: scale(1.1);
-  }
-  .why-content h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
-  .why-content p { font-size: 14px; color: var(--gray); line-height: 1.8; }
-  .why-visual {
-    background: rgba(13,20,36,0.7);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    backdrop-filter: blur(8px);
-  }
-  .metric-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 22px;
-    background: rgba(0,87,255,0.04);
-    border-radius: var(--r-sm);
-    border: 1px solid var(--border);
-    transition: all 0.3s;
-  }
-  .metric-row:hover { background: rgba(0,87,255,0.1); border-color: var(--blue); transform: translateX(4px); }
-  .metric-label { font-size: 14px; color: var(--gray); }
-  .metric-value { font-family: var(--font-en); font-size: 24px; font-weight: 700; color: var(--cyan); }
-
-  /* ===== FAQ ===== */
-  .faq { background: transparent; }
-  .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 48px; max-width: 800px; }
-  .faq-item {
-    background: rgba(13,20,36,0.7);
-    border: 1px solid var(--border);
-    border-radius: var(--r-sm);
-    overflow: hidden;
-    transition: all 0.3s;
-    backdrop-filter: blur(8px);
-  }
-  .faq-item.open { border-color: rgba(0,87,255,0.4); box-shadow: 0 4px 24px rgba(0,87,255,0.1); }
-  .faq-question {
-    width: 100%;
-    text-align: right;
-    background: none;
-    border: none;
-    padding: 22px 26px;
-    font-family: var(--font-ar);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--white);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    transition: color 0.2s;
-  }
-  .faq-question:hover { color: var(--cyan); }
-  .faq-arrow {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(0,87,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.35s;
-    font-size: 13px;
-  }
-  .faq-item.open .faq-arrow { background: linear-gradient(135deg, var(--blue), var(--cyan)); transform: rotate(180deg); }
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    padding: 0 26px;
-  }
-  .faq-answer p { font-size: 14px; color: var(--gray); line-height: 1.9; padding-bottom: 22px; }
-  .faq-item.open .faq-answer { max-height: 400px; }
-
-  /* ===== CTA SECTION ===== */
-  .cta-section {
-    background: linear-gradient(135deg, rgba(0,87,255,0.12) 0%, rgba(0,194,255,0.06) 50%, rgba(167,139,250,0.04) 100%);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 100px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
-  }
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(0,87,255,0.12) 0%, transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    animation: ctaPulse 5s ease-in-out infinite;
-  }
-  @keyframes ctaPulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-    50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
-  }
-  .cta-title {
-    font-size: clamp(28px, 4vw, 52px);
-    font-weight: 900;
-    margin-bottom: 20px;
-    position: relative;
-  }
-  .cta-sub { font-size: 17px; color: var(--gray); margin-bottom: 40px; line-height: 1.9; position: relative; }
-  .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; }
-
-  /* ===== CONTACT ===== */
-  .contact { background: transparent; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; margin-top: 56px; }
-  .contact-info { display: flex; flex-direction: column; gap: 24px; }
-  .contact-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    transition: transform 0.3s;
-  }
-  .contact-item:hover { transform: translateX(8px); }
-  .contact-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, rgba(0,87,255,0.12), rgba(0,194,255,0.08));
-    border: 1px solid rgba(0,87,255,0.2);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-    transition: all 0.3s;
-  }
-  .contact-item:hover .contact-icon {
-    background: linear-gradient(135deg, rgba(0,87,255,0.2), rgba(0,194,255,0.15));
-    border-color: var(--blue);
-  }
-  .contact-detail h4 { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
-  .contact-detail p { font-size: 16px; font-weight: 600; color: var(--white); }
-  .contact-detail a { color: var(--white); transition: color 0.2s; }
-  .contact-detail a:hover { color: var(--cyan); }
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    background: rgba(13,20,36,0.5);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    padding: 36px;
-    backdrop-filter: blur(8px);
-  }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { display: flex; flex-direction: column; gap: 8px; }
-  .form-label { font-size: 13px; font-weight: 700; color: var(--gray); }
-  .form-input, .form-select, .form-textarea {
-    background: rgba(10,14,26,0.8);
-    border: 1px solid var(--border);
-    border-radius: var(--r-sm);
-    padding: 14px 18px;
-    font-family: var(--font-ar);
-    font-size: 15px;
-    color: var(--white);
-    outline: none;
-    transition: all 0.3s;
-    width: 100%;
-  }
-  .form-input:focus, .form-select:focus, .form-textarea:focus {
-    border-color: var(--blue);
-    box-shadow: 0 0 0 4px rgba(0,87,255,0.1);
-  }
-  .form-input::placeholder, .form-textarea::placeholder { color: #3a4260; }
-  .form-select option { background: var(--card-bg); }
-  .form-textarea { resize: vertical; min-height: 120px; }
-  .form-submit { width: 100%; justify-content: center; }
-
-  /* ===== FOOTER ===== */
-  .footer {
-    background: #050810;
-    padding: 64px 0 32px;
-    border-top: 1px solid var(--border);
-    position: relative;
-    z-index: 2;
-  }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-  .footer-brand .logo-img { height: 36px; margin-bottom: 4px; }
-  .footer-brand p { font-size: 14px; color: var(--gray); line-height: 1.8; margin-top: 16px; max-width: 280px; }
-  .footer-social { display: flex; gap: 12px; margin-top: 24px; }
-  .social-link {
-    width: 40px;
-    height: 40px;
-    background: rgba(13,20,36,0.8);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    transition: all 0.3s;
-    color: var(--gray);
-  }
-  .social-link:hover { border-color: var(--blue); color: var(--white); background: rgba(0,87,255,0.1); transform: translateY(-3px); }
-  .footer-col h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 20px; }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .footer-links a { font-size: 14px; color: var(--gray); transition: all 0.2s; }
-  .footer-links a:hover { color: var(--cyan); padding-right: 6px; }
-  .footer-bottom {
-    padding-top: 28px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer-copy { font-size: 13px; color: var(--gray); }
-  .footer-copy span { color: var(--cyan); }
-
-  /* ===== WHATSAPP FLOAT ===== */
-  .wa-float {
-    position: fixed;
-    bottom: 28px;
-    left: 28px;
-    width: 62px;
-    height: 62px;
-    background: linear-gradient(135deg, #25D366, #1eb558);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    z-index: 999;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-    transition: all 0.3s;
-    cursor: pointer;
-    text-decoration: none;
-    animation: waFloat 3s ease-in-out infinite;
-  }
-  @keyframes waFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .wa-float:hover { transform: scale(1.15); box-shadow: 0 8px 40px rgba(37,211,102,0.5); animation: none; }
-  .wa-tooltip {
-    position: absolute;
-    left: 74px;
-    background: rgba(10,14,26,0.95);
-    border: 1px solid var(--border);
-    color: var(--white);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s;
-    font-family: var(--font-ar);
-    backdrop-filter: blur(8px);
-    transform: translateX(-8px);
-  }
-  .wa-float:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
-
-  /* ===== ANIMATIONS ===== */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.4,0,0.2,1);
-    will-change: opacity, transform;
-  }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 1024px) {
-    .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
-    .pricing-card.featured { transform: none; }
-    .pricing-card.featured:hover { transform: translateY(-6px); }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    .process-steps::before { display: none; }
-    .why-grid { grid-template-columns: 1fr; gap: 40px; }
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 768px) {
-    .section { padding: 72px 0; }
-    .nav-links, .nav-cta { display: none; }
-    .hamburger { display: flex; }
-    .grid-2 { grid-template-columns: 1fr; }
-    .grid-3 { grid-template-columns: 1fr; }
-    .hero-stats { gap: 20px; padding: 24px; flex-wrap: wrap; }
-    .stat-divider { display: none; }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-    .form-row { grid-template-columns: 1fr; }
-    .addons-grid { grid-template-columns: 1fr 1fr; }
-    .hero-title { font-size: clamp(28px, 8vw, 48px); }
-  }
-  @media (max-width: 480px) {
-    .addons-grid { grid-template-columns: 1fr; }
-    .stat-num { font-size: 28px; }
-  }
-</style>
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareCompany",
+    "name": "Dev Blue Tech",
+    "url": "https://devbluetech.com",
+    "logo": "assets/logo.png",
+    "description": "Premium software agency specializing in web development, mobile apps, UI/UX design, AI solutions, cloud services, and cybersecurity.",
+    "email": "devblue.tec@gmail.com",
+    "telephone": "+201021858848",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "EG"
+    },
+    "sameAs": [
+      "https://github.com/devbluetech",
+      "https://www.facebook.com/profile.php?id=61590696542144"
+    ]
+  }
+  </script>
 </head>
 <body>
 
-<!-- MODERN BACKGROUND -->
-<div class="bg-elements">
-  <div class="bg-glow-1"></div>
-  <div class="bg-glow-2"></div>
-</div>
+<!-- ===== ANIMATED BACKGROUND ===== -->
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-orb bg-orb--1" aria-hidden="true"></div>
+<div class="bg-orb bg-orb--2" aria-hidden="true"></div>
+<div class="bg-orb bg-orb--3" aria-hidden="true"></div>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-  <div class="container">
-    <a href="#home" class="logo">
-      <img src="assets/logo.png" alt="Dev Blue Tech Logo" class="logo-img">
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container navbar__inner">
+    <a href="#home" class="navbar__logo" aria-label="Dev Blue Tech Home">
+      <img src="assets/logo.png" alt="Dev Blue Tech" width="160" height="40" loading="eager">
     </a>
-    <ul class="nav-links">
-      <li><a href="#services">الخدمات</a></li>
-      <li><a href="#portfolio">أعمالنا</a></li>
-      <li><a href="#pricing">الأسعار</a></li>
-      <li><a href="#testimonials">آراء العملاء</a></li>
-      <li><a href="#faq">أسئلة شائعة</a></li>
-      <li><a href="#contact">تواصل معنا</a></li>
+    <ul class="navbar__links">
+      <li><a href="#services" class="navbar__link">Services</a></li>
+      <li><a href="#portfolio" class="navbar__link">Portfolio</a></li>
+      <li><a href="#process" class="navbar__link">Process</a></li>
+      <li><a href="#testimonials" class="navbar__link">Testimonials</a></li>
+      <li><a href="#team" class="navbar__link">Team</a></li>
+      <li><a href="#contact" class="navbar__link">Contact</a></li>
     </ul>
-    <div class="nav-cta">
-      <a href="https://wa.me/201021858848?text=مرحبا،%20أنا%20مهتم%20بخدمات%20Dev%20Blue%20Tech" class="btn-primary" style="padding:10px 22px;font-size:14px;" target="_blank">ابدأ مشروعك</a>
-    </div>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
+    <div class="navbar__actions">
+      <a href="#contact" class="btn btn--primary btn--sm">Start a Project</a>
+      <button class="navbar__hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <span class="mobile-close" onclick="toggleMenu()">✕</span>
-  <a href="#services" onclick="toggleMenu()">الخدمات</a>
-  <a href="#portfolio" onclick="toggleMenu()">أعمالنا</a>
-  <a href="#pricing" onclick="toggleMenu()">الأسعار</a>
-  <a href="#testimonials" onclick="toggleMenu()">آراء العملاء</a>
-  <a href="#faq" onclick="toggleMenu()">أسئلة شائعة</a>
-  <a href="#contact" onclick="toggleMenu()">تواصل معنا</a>
-  <a href="https://wa.me/201021858848?text=مرحبا،%20أنا%20مهتم%20بخدمات%20Dev%20Blue%20Tech" class="btn-whatsapp" target="_blank">واتساب دلوقتي</a>
+<!-- ===== MOBILE MENU ===== -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <button class="mobile-menu__close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
+  <a href="#services" class="mobile-menu__link">Services</a>
+  <a href="#portfolio" class="mobile-menu__link">Portfolio</a>
+  <a href="#process" class="mobile-menu__link">Process</a>
+  <a href="#testimonials" class="mobile-menu__link">Testimonials</a>
+  <a href="#team" class="mobile-menu__link">Team</a>
+  <a href="#contact" class="mobile-menu__link">Contact</a>
+  <a href="#contact" class="btn btn--primary" onclick="toggleMobileMenu()">Start a Project</a>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="home" aria-label="Hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__grid-lines"></div>
+  </div>
+
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="pulse-dot"></span>
-        متاح للعمل الآن — احجز مكانك
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        Available for new projects — Let's build together
       </div>
-      <h1 class="hero-title">
-        بنبني الأنظمة اللي<br>
-        <span class="gradient-text">تشغّل تجارتك</span>
+
+      <h1 class="hero__title">
+        We Build Digital<br>
+        Products That <span class="gradient-text">Matter</span>
       </h1>
-      <p class="hero-sub">
-        مواقع مطاعم، أنظمة كافيهات، كاشير ذكي، QR Order، إدارة مخزون، موبايل أبليكيشن —<br>
-        كل حاجة تحتاجها عشان تنقل شغلك للمستوى الجاي.
+
+      <p class="hero__subtitle">
+        From concept to launch — we craft premium web applications, mobile apps,
+        AI-powered solutions, and scalable cloud infrastructure that drive real business growth.
       </p>
-      <div class="hero-actions">
-        <a href="https://wa.me/201021858848?text=مرحبا،%20أنا%20عايز%20أبدأ%20مشروع%20مع%20Dev%20Blue%20Tech" class="btn-whatsapp" target="_blank">كلّمنا على واتساب</a>
-        <a href="#portfolio" class="btn-ghost">شوف أعمالنا</a>
+
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          Start a Project
+        </a>
+        <a href="#portfolio" class="btn btn--ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          View Our Work
+        </a>
       </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num" data-target="50">0<span>+</span></div>
-          <div class="stat-label">مشروع منجز</div>
+
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <div class="hero__stat-number" data-count="50" data-suffix="+">0</div>
+          <div class="hero__stat-label">Projects Delivered</div>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-num" data-target="30">0<span>+</span></div>
-          <div class="stat-label">عميل راضي</div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <div class="hero__stat-number" data-count="30" data-suffix="+">0</div>
+          <div class="hero__stat-label">Happy Clients</div>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-num" data-target="5">0<span>سنين</span></div>
-          <div class="stat-label">خبرة في السوق</div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <div class="hero__stat-number" data-count="5" data-suffix="+">0</div>
+          <div class="hero__stat-label">Years Experience</div>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-num">24<span>/7</span></div>
-          <div class="stat-label">دعم فني</div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <div class="hero__stat-number">24<span>/7</span></div>
+          <div class="hero__stat-label">Support</div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="hero__scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </div>
 </section>
 
-<!-- CLIENTS MARQUEE -->
-<div class="clients-section">
-  <div class="clients-label">عملاء ومشاريع تم تسليمها بنجاح</div>
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <div class="client-badge"><div class="tech-dot" style="background:#0057FF;margin-left:8px;"></div>Burger Storm</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#00C2FF;margin-left:8px;"></div>TX Cafe</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#FFD700;margin-left:8px;"></div>The Smoke Grill</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#25D366;margin-left:8px;"></div>منصة عقارية</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#a78bfa;margin-left:8px;"></div>TransitWay</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#FF4757;margin-left:8px;"></div>نظام PlayStation</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#F0F4FF;margin-left:8px;"></div>نظام صالة رياضية</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#0057FF;margin-left:8px;"></div>موبايل أبليكيشن</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#0057FF;margin-left:8px;"></div>Burger Storm</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#00C2FF;margin-left:8px;"></div>TX Cafe</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#FFD700;margin-left:8px;"></div>The Smoke Grill</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#25D366;margin-left:8px;"></div>منصة عقارية</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#a78bfa;margin-left:8px;"></div>TransitWay</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#FF4757;margin-left:8px;"></div>نظام PlayStation</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#F0F4FF;margin-left:8px;"></div>نظام صالة رياضية</div>
-      <div class="client-badge"><div class="tech-dot" style="background:#0057FF;margin-left:8px;"></div>موبايل أبليكيشن</div>
+<!-- ===== TRUSTED BY / MARQUEE ===== -->
+<div class="trusted" aria-label="Trusted by">
+  <div class="trusted__label">Technologies & Tools We Work With</div>
+  <div class="marquee">
+    <div class="marquee__track">
+      <div class="marquee__item"><span class="marquee__dot" style="background:#61DAFB;"></span>React.js</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#fff;"></span>Next.js</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#3178C6;"></span>TypeScript</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#339933;"></span>Node.js</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#3ECF8E;"></span>Supabase</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#FFCA28;"></span>Firebase</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#61DAFB;"></span>React Native</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#02569B;"></span>Flutter</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#4285F4;"></span>Google Cloud</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#FF9900;"></span>AWS</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#764ABC;"></span>Redux</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#47A248;"></span>MongoDB</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#336791;"></span>PostgreSQL</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#2496ED;"></span>Docker</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#F7DF1E;"></span>JavaScript</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#3776AB;"></span>Python</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="marquee__item"><span class="marquee__dot" style="background:#61DAFB;"></span>React.js</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#fff;"></span>Next.js</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#3178C6;"></span>TypeScript</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#339933;"></span>Node.js</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#3ECF8E;"></span>Supabase</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#FFCA28;"></span>Firebase</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#61DAFB;"></span>React Native</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#02569B;"></span>Flutter</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#4285F4;"></span>Google Cloud</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#FF9900;"></span>AWS</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#764ABC;"></span>Redux</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#47A248;"></span>MongoDB</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#336791;"></span>PostgreSQL</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#2496ED;"></span>Docker</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#F7DF1E;"></span>JavaScript</div>
+      <div class="marquee__item"><span class="marquee__dot" style="background:#3776AB;"></span>Python</div>
     </div>
   </div>
 </div>
 
-<!-- TECH STACK -->
-<div class="tech-section">
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services" aria-label="Our Services">
   <div class="container">
-    <p class="section-label" style="text-align:center;display:block;margin:0 auto 40px;">التقنيات اللي بنشتغل بيها</p>
-    <div class="tech-grid">
-      <div class="tech-badge"><div class="tech-dot" style="background:#61DAFB;"></div>React.js</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#fff;"></div>Next.js</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#3ECF8E;"></div>Supabase</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#FFCA28;"></div>Firebase</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#3178C6;"></div>TypeScript</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#61DAFB;"></div>React Native</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#F7DF1E;"></div>JavaScript</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#FF6B6B;"></div>HTML / CSS</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#25D366;"></div>WhatsApp API</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#47A248;"></div>Vercel Deploy</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#764ABC;"></div>Node.js</div>
-      <div class="tech-badge"><div class="tech-dot" style="background:#02569B;"></div>Flutter</div>
+    <div class="section-header">
+      <span class="section-label">Our Services</span>
+      <h2 class="section-title">End-to-End Digital <span class="gradient-text">Solutions</span></h2>
+      <p class="section-subtitle">We deliver comprehensive technology services designed to accelerate your business growth and digital transformation.</p>
+    </div>
+
+    <div class="services__grid">
+      <!-- Web Development -->
+      <article class="service-card">
+        <div class="service-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="service-card__title">Web Development</h3>
+        <p class="service-card__desc">High-performance web applications built with React, Next.js, and modern frameworks. From landing pages to complex SaaS platforms.</p>
+      </article>
+
+      <!-- Mobile Apps -->
+      <article class="service-card">
+        <div class="service-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <h3 class="service-card__title">Mobile Apps</h3>
+        <p class="service-card__desc">Native and cross-platform mobile applications for iOS and Android using React Native and Flutter with pixel-perfect design.</p>
+      </article>
+
+      <!-- UI/UX Design -->
+      <article class="service-card">
+        <div class="service-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        </div>
+        <h3 class="service-card__title">UI/UX Design</h3>
+        <p class="service-card__desc">Award-worthy interfaces with seamless user experiences. Research-driven design that converts visitors into customers.</p>
+      </article>
+
+      <!-- Backend Development -->
+      <article class="service-card">
+        <div class="service-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+        </div>
+        <h3 class="service-card__title">Backend Development</h3>
+        <p class="service-card__desc">Scalable server architectures with Node.js, Python, and cloud-native solutions. RESTful APIs and real-time systems.</p>
+      </article>
+
+      <!-- AI Solutions -->
+      <article class="service-card">
+        <div class="service-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1H6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1v1a4 4 0 0 0 8 0v-1h1a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4Z"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/><path d="M9 14c.6.9 1.7 1.5 3 1.5s2.4-.6 3-1.5"/></svg>
+        </div>
+        <h3 class="service-card__title">AI Solutions</h3>
+        <p class="service-card__desc">Machine learning models, intelligent chatbots, and AI-driven automation that transform business operations and customer experience.</p>
+      </article>
+
+      <!-- Cloud Services -->
+      <article class="service-card">
+        <div class="service-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+        </div>
+        <h3 class="service-card__title">Cloud Services</h3>
+        <p class="service-card__desc">Cloud infrastructure on AWS, GCP, and Azure. CI/CD pipelines, containerization, and auto-scaling for enterprise workloads.</p>
+      </article>
+
+      <!-- Cybersecurity -->
+      <article class="service-card">
+        <div class="service-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3 class="service-card__title">Cybersecurity</h3>
+        <p class="service-card__desc">Comprehensive security audits, penetration testing, and secure architecture design. Protect your data and your users.</p>
+      </article>
+
+      <!-- API Development -->
+      <article class="service-card">
+        <div class="service-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        </div>
+        <h3 class="service-card__title">API Development</h3>
+        <p class="service-card__desc">RESTful and GraphQL APIs with comprehensive documentation, rate limiting, authentication, and third-party integrations.</p>
+      </article>
     </div>
   </div>
-</div>
+</section>
 
-<!-- SERVICES -->
-<section class="section services" id="services">
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="section" id="why" aria-label="Why Choose Us">
   <div class="container">
-    <div class="services-header fade-up" style="text-align:center;">
-      <span class="section-label">خدماتنا</span>
-      <h2 class="section-title">حلول رقمية <span class="gradient-text">متكاملة</span></h2>
-      <p class="section-subtitle" style="margin:0 auto;">من الفكرة للتسليم — كل حاجة تحتاجها لتحويل عملك التجاري لتجربة رقمية عالمية.</p>
+    <div class="section-header">
+      <span class="section-label">Why Choose Us</span>
+      <h2 class="section-title">Built Different, <span class="gradient-text">Delivered Better</span></h2>
+      <p class="section-subtitle">We don't just build software — we craft digital experiences that drive measurable results for your business.</p>
     </div>
-    <div class="grid-3">
-      <!-- Service 1 -->
-      <div class="service-card fade-up">
-        <div class="service-icon"><div style="width:20px;height:20px;border-radius:50%;background:var(--cyan);"></div></div>
-        <div class="service-name">موقع المطعم الاحترافي</div>
-        <div class="service-desc">موقع كامل بالمنيو والأسعار والصور وزر الطلب عبر واتساب، مع دومين وهوستنج.</div>
-        <ul class="service-features">
-          <li>تصميم عربي RTL مخصوص لشغلك</li>
-          <li>منيو تفاعلي مقسّم بتبويبات</li>
-          <li>سلة طلبات + طلب واتساب مباشر</li>
-          <li>متجاوب مع كل الأجهزة 100%</li>
-          <li>سيو متقدم + خريطة جوجل</li>
-          <li>دومين + هوستنج + SSL</li>
-          <li>تسليم خلال 3-7 أيام</li>
-        </ul>
-        <div class="service-price">
-          <span class="service-price-text"><span class="discount-badge">خصم 1,000 ج</span>يبدأ من <strong>7,000 جنيه</strong></span>
+
+    <div class="why__grid">
+      <article class="why-card">
+        <div class="why-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 class="why-card__title">Lightning Fast Delivery</h3>
+        <p class="why-card__desc">We ship production-ready products in days, not months. Agile methodology with clear milestones and zero delays.</p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="why-card__title">Direct Communication</h3>
+        <p class="why-card__desc">Talk directly to the engineers building your product. No middlemen, no miscommunication — just transparent collaboration.</p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3 class="why-card__title">Custom-Built Solutions</h3>
+        <p class="why-card__desc">No templates, no shortcuts. Every project is architected from scratch to fit your unique business requirements.</p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
+        </div>
+        <h3 class="why-card__title">Full-Stack Expertise</h3>
+        <p class="why-card__desc">From frontend to backend, mobile to cloud — we handle the entire tech stack so you can focus on growing your business.</p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+        </div>
+        <h3 class="why-card__title">Global Reach</h3>
+        <p class="why-card__desc">We serve clients across Egypt, Saudi Arabia, UAE, and beyond. Timezone-flexible teams, world-class delivery standards.</p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+        </div>
+        <h3 class="why-card__title">24/7 Support & Maintenance</h3>
+        <p class="why-card__desc">We don't just deliver and disappear. Ongoing support, unlimited revisions, and continuous improvement are part of the deal.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS / TIMELINE ===== -->
+<section class="section" id="process" aria-label="Our Process">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Process</span>
+      <h2 class="section-title">From Idea to <span class="gradient-text">Launch</span></h2>
+      <p class="section-subtitle">A proven 7-step process that ensures every project is delivered on time, on budget, and beyond expectations.</p>
+    </div>
+
+    <div class="process__timeline">
+      <div class="process__step">
+        <div class="process__step-marker"><div class="process__step-marker-dot"></div></div>
+        <div class="process__step-content">
+          <div class="process__step-number">Step 01</div>
+          <h3 class="process__step-title">Discovery</h3>
+          <p class="process__step-desc">We dive deep into your business goals, target audience, and competitive landscape to define the project scope and success metrics.</p>
         </div>
       </div>
-      <!-- Service 2 -->
-      <div class="service-card fade-up">
-        <div class="service-icon"><div style="width:16px;height:24px;border-radius:4px;background:var(--blue);"></div></div>
-        <div class="service-name">سيستم QR + منيو ديجيتال</div>
-        <div class="service-desc">العميل يمسح QR، يشوف المنيو، يطلب — الأوردرات بتجي للداشبورد مباشرة بدون ويتر!</div>
-        <ul class="service-features">
-          <li>QR code لكل ترابيزة</li>
-          <li>منيو ديجيتال قابل للتعديل</li>
-          <li>داشبورد أوردرات Real-time</li>
-          <li>إشعارات فورية صوتية</li>
-          <li>تقارير مبيعات يومية وشهرية</li>
-          <li>لا يحتاج تطبيق — يعمل من المتصفح</li>
-          <li>طباعة QR codes جاهزة</li>
-        </ul>
-        <div class="service-price">
-          <span class="service-price-text">يبدأ من <strong>12,000 جنيه</strong></span>
-          <span class="service-price-badge">توفير 50% ويتر</span>
+
+      <div class="process__step">
+        <div class="process__step-marker"><div class="process__step-marker-dot"></div></div>
+        <div class="process__step-content">
+          <div class="process__step-number">Step 02</div>
+          <h3 class="process__step-title">Planning</h3>
+          <p class="process__step-desc">Detailed project roadmap with milestones, tech stack selection, architecture decisions, and timeline — all transparent and collaborative.</p>
         </div>
       </div>
-      <!-- Service 3 -->
-      <div class="service-card fade-up">
-        <div class="service-icon"><div style="width:24px;height:16px;border-radius:4px;border:2px solid var(--cyan);"></div></div>
-        <div class="service-name">سيستم كاشير ذكي (POS)</div>
-        <div class="service-desc">نظام نقاط بيع كامل للمطاعم والمحلات — فاتورة، مخزون، كاشير، تقارير.</div>
-        <ul class="service-features">
-          <li>إصدار فواتير + طباعة حرارية</li>
-          <li>إدارة المخزون تلقائياً</li>
-          <li>تقارير مبيعات تفصيلية</li>
-          <li>حسابات موظفين وشيفتات</li>
-          <li>يعمل على كل الأجهزة</li>
-          <li>بدون انترنت (Offline Mode)</li>
-          <li>ربط مع نظام QR Order</li>
-        </ul>
-        <div class="service-price">
-          <span class="service-price-text">يبدأ من <strong>18,000 جنيه</strong></span>
-          <span class="service-price-badge">حل متكامل</span>
+
+      <div class="process__step">
+        <div class="process__step-marker"><div class="process__step-marker-dot"></div></div>
+        <div class="process__step-content">
+          <div class="process__step-number">Step 03</div>
+          <h3 class="process__step-title">Design</h3>
+          <p class="process__step-desc">Wireframes, high-fidelity mockups, and interactive prototypes. We iterate until the design is pixel-perfect and user-approved.</p>
         </div>
       </div>
-      <!-- Service 4: Mobile App (NEW) -->
-      <div class="service-card fade-up">
-        <div class="service-icon"><div style="width:18px;height:30px;border-radius:6px;border:2px solid var(--blue);"></div></div>
-        <div class="service-name">موبايل أبليكيشن</div>
-        <div class="service-desc">تطبيق موبايل احترافي لمشروعك — Android و iOS بتصميم عالمي وأداء خرافي.</div>
-        <ul class="service-features">
-          <li>تطبيق Android + iOS</li>
-          <li>تصميم UI/UX احترافي</li>
-          <li>إشعارات Push Notifications</li>
-          <li>ربط مع Dashboard</li>
-          <li>نشر على Google Play + App Store</li>
-          <li>أداء سريع وسلس</li>
-          <li>تحديثات مستمرة ودعم فني</li>
-        </ul>
-        <div class="service-price">
-          <span class="service-price-text">يبدأ من <strong>30,000 جنيه</strong></span>
-          <span class="service-price-badge">أداء فائق</span>
+
+      <div class="process__step">
+        <div class="process__step-marker"><div class="process__step-marker-dot"></div></div>
+        <div class="process__step-content">
+          <div class="process__step-number">Step 04</div>
+          <h3 class="process__step-title">Development</h3>
+          <p class="process__step-desc">Clean, maintainable code built with modern frameworks. Regular demos and progress updates so you're always in the loop.</p>
         </div>
       </div>
-      <!-- Service 5 -->
-      <div class="service-card fade-up">
-        <div class="service-icon"><div style="width:24px;height:24px;background:var(--cyan);clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div></div>
-        <div class="service-name">أنظمة البيزنس المتخصصة</div>
-        <div class="service-desc">سيستم إدارة قاعة PlayStation، صالة رياضية، كلينيك، عقارات — على قد شغلك.</div>
-        <ul class="service-features">
-          <li>لوحة تحكم مخصصة لطبيعة شغلك</li>
-          <li>نظام حجوزات واشتراكات</li>
-          <li>إدارة العملاء والتعاملات</li>
-          <li>نظام دفع ومتابعة مديونيات</li>
-          <li>تقارير وإحصائيات متقدمة</li>
-          <li>إشعارات واتساب للعملاء</li>
-        </ul>
-        <div class="service-price">
-          <span class="service-price-text">يبدأ من <strong>20,000 جنيه</strong></span>
-          <span class="service-price-badge">مخصوص ليك</span>
+
+      <div class="process__step">
+        <div class="process__step-marker"><div class="process__step-marker-dot"></div></div>
+        <div class="process__step-content">
+          <div class="process__step-number">Step 05</div>
+          <h3 class="process__step-title">Testing</h3>
+          <p class="process__step-desc">Rigorous QA with automated and manual testing across devices and browsers. Performance optimization and security audits included.</p>
         </div>
       </div>
-      <!-- Service 6 -->
-      <div class="service-card fade-up">
-        <div class="service-icon"><div style="width:20px;height:20px;border:3px solid var(--blue);border-radius:50%;"></div></div>
-        <div class="service-name">صيانة ودعم مستمر</div>
-        <div class="service-desc">مش بس بنسلّم وبنمشي — بنكون معك دايماً للتعديلات والأعطال والتطوير المستمر.</div>
-        <ul class="service-features">
-          <li>رد خلال ساعات مضمون</li>
-          <li>تعديلات غير محدودة على المحتوى</li>
-          <li>تحديثات المنيو والأسعار</li>
-          <li>نسخ احتياطي يومي تلقائي</li>
-          <li>تقرير شهري مفصل للأداء</li>
-          <li>أولوية في الدعم والتطوير</li>
-        </ul>
-        <div class="service-price">
-          <span class="service-price-text">باقات تبدأ من <strong>1,000 جنيه</strong> / شهر</span>
-          <span class="service-price-badge">راحة بال</span>
+
+      <div class="process__step">
+        <div class="process__step-marker"><div class="process__step-marker-dot"></div></div>
+        <div class="process__step-content">
+          <div class="process__step-number">Step 06</div>
+          <h3 class="process__step-title">Deployment</h3>
+          <p class="process__step-desc">Zero-downtime deployment with CI/CD pipelines. We handle domain setup, SSL, hosting, and ensure everything runs flawlessly.</p>
+        </div>
+      </div>
+
+      <div class="process__step">
+        <div class="process__step-marker"><div class="process__step-marker-dot"></div></div>
+        <div class="process__step-content">
+          <div class="process__step-number">Step 07</div>
+          <h3 class="process__step-title">Support</h3>
+          <p class="process__step-desc">Ongoing maintenance, performance monitoring, feature updates, and priority support. We're your long-term technology partner.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="section process" id="process">
+<!-- ===== PORTFOLIO ===== -->
+<section class="section" id="portfolio" aria-label="Our Portfolio">
   <div class="container">
-    <div class="fade-up" style="text-align:center;">
-      <span class="section-label">كيف بنشتغل</span>
-      <h2 class="section-title">من الطلب للتسليم في <span class="gradient-text">4 خطوات</span></h2>
+    <div class="section-header">
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Projects We've <span class="gradient-text">Shipped</span></h2>
+      <p class="section-subtitle">Real projects, real results. Here's a showcase of the work we've delivered for our clients.</p>
     </div>
-    <div class="process-steps">
-      <div class="step fade-up">
-        <div class="step-num">01</div>
-        <div class="step-title">استشارة مجانية</div>
-        <div class="step-desc">بنسمع منك ونفهم شغلك ومتطلباتك واللي عايز تحققه، وبنعملك تقييم كامل مجاناً.</div>
-      </div>
-      <div class="step fade-up">
-        <div class="step-num">02</div>
-        <div class="step-title">عرض سعر وتصميم</div>
-        <div class="step-desc">بنبعتلك عرض سعر شامل مع تصميم أولي وخطة التنفيذ في 24 ساعة.</div>
-      </div>
-      <div class="step fade-up">
-        <div class="step-num">03</div>
-        <div class="step-title">تطوير وتسليم</div>
-        <div class="step-desc">بنبني المشروع بسرعة واحترافية، وبنعرضه عليك في كل مرحلة.</div>
-      </div>
-      <div class="step fade-up">
-        <div class="step-num">04</div>
-        <div class="step-title">رفع ودعم</div>
-        <div class="step-desc">بنرفع المشروع على السيرفر وبنعلّمك تستخدمه وبنفضل معك للدعم المستمر.</div>
-      </div>
+
+    <div class="portfolio__filters">
+      <button class="portfolio__filter is-active" data-filter="all">All</button>
+      <button class="portfolio__filter" data-filter="web">Web Apps</button>
+      <button class="portfolio__filter" data-filter="mobile">Mobile</button>
+      <button class="portfolio__filter" data-filter="system">Systems</button>
+    </div>
+
+    <div class="portfolio__grid">
+      <!-- Project 1 -->
+      <article class="portfolio-card" data-category="web">
+        <div class="portfolio-card__image">
+          <img src="assets/sharkawy_grill.png" alt="El Sharkawy Grill — Restaurant Website" loading="lazy">
+          <span class="portfolio-card__badge portfolio-card__badge--completed">Completed</span>
+        </div>
+        <div class="portfolio-card__body">
+          <div class="portfolio-card__category">Web App</div>
+          <h3 class="portfolio-card__title">El Sharkawy Grill</h3>
+          <p class="portfolio-card__desc">Premium restaurant website with interactive digital menu, WhatsApp ordering, and responsive design.</p>
+          <div class="portfolio-card__tech">
+            <span class="portfolio-card__tech-tag">React</span>
+            <span class="portfolio-card__tech-tag">Next.js</span>
+            <span class="portfolio-card__tech-tag">Supabase</span>
+          </div>
+          <div class="portfolio-card__links">
+            <a href="#" class="portfolio-card__link">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="portfolio-card" data-category="web">
+        <div class="portfolio-card__image">
+          <img src="assets/tx_cafe.png" alt="TX Cafe — QR Ordering System" loading="lazy">
+          <span class="portfolio-card__badge portfolio-card__badge--active">Live</span>
+        </div>
+        <div class="portfolio-card__body">
+          <div class="portfolio-card__category">Web App</div>
+          <h3 class="portfolio-card__title">TX Cafe</h3>
+          <p class="portfolio-card__desc">Complete QR ordering system with real-time dashboard, digital menu, and order management.</p>
+          <div class="portfolio-card__tech">
+            <span class="portfolio-card__tech-tag">React</span>
+            <span class="portfolio-card__tech-tag">Firebase</span>
+            <span class="portfolio-card__tech-tag">Node.js</span>
+          </div>
+          <div class="portfolio-card__links">
+            <a href="#" class="portfolio-card__link">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="portfolio-card" data-category="web">
+        <div class="portfolio-card__image">
+          <img src="assets/smoke_grill.png" alt="The Smoke Grill — Restaurant Platform" loading="lazy">
+          <span class="portfolio-card__badge portfolio-card__badge--completed">Completed</span>
+        </div>
+        <div class="portfolio-card__body">
+          <div class="portfolio-card__category">Web App</div>
+          <h3 class="portfolio-card__title">The Smoke Grill</h3>
+          <p class="portfolio-card__desc">Premium grill restaurant website with interactive menu, delivery integration, and WhatsApp ordering.</p>
+          <div class="portfolio-card__tech">
+            <span class="portfolio-card__tech-tag">HTML/CSS</span>
+            <span class="portfolio-card__tech-tag">JavaScript</span>
+            <span class="portfolio-card__tech-tag">WhatsApp API</span>
+          </div>
+          <div class="portfolio-card__links">
+            <a href="#" class="portfolio-card__link">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="portfolio-card" data-category="system">
+        <div class="portfolio-card__image">
+          <img src="assets/real_estate_dashboard.png" alt="Real Estate Management Platform" loading="lazy">
+          <span class="portfolio-card__badge portfolio-card__badge--active">Live</span>
+        </div>
+        <div class="portfolio-card__body">
+          <div class="portfolio-card__category">System</div>
+          <h3 class="portfolio-card__title">Real Estate Platform</h3>
+          <p class="portfolio-card__desc">Comprehensive property management dashboard with tenant tracking, financial reports, and payment automation.</p>
+          <div class="portfolio-card__tech">
+            <span class="portfolio-card__tech-tag">React</span>
+            <span class="portfolio-card__tech-tag">Supabase</span>
+            <span class="portfolio-card__tech-tag">PostgreSQL</span>
+          </div>
+          <div class="portfolio-card__links">
+            <a href="#" class="portfolio-card__link">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="portfolio-card" data-category="system">
+        <div class="portfolio-card__image">
+          <img src="assets/transit_app.png" alt="TransitWay — Smart Transit System" loading="lazy">
+          <span class="portfolio-card__badge portfolio-card__badge--active">Live</span>
+        </div>
+        <div class="portfolio-card__body">
+          <div class="portfolio-card__category">System</div>
+          <h3 class="portfolio-card__title">TransitWay</h3>
+          <p class="portfolio-card__desc">Smart transit system with real-time GPS tracking, QR ticketing, electronic payments, and analytics dashboard.</p>
+          <div class="portfolio-card__tech">
+            <span class="portfolio-card__tech-tag">React Native</span>
+            <span class="portfolio-card__tech-tag">Node.js</span>
+            <span class="portfolio-card__tech-tag">MongoDB</span>
+          </div>
+          <div class="portfolio-card__links">
+            <a href="#" class="portfolio-card__link">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="portfolio-card" data-category="mobile">
+        <div class="portfolio-card__image">
+          <img src="assets/delivery_app.png" alt="Food Delivery Mobile App" loading="lazy">
+          <span class="portfolio-card__badge portfolio-card__badge--completed">Completed</span>
+        </div>
+        <div class="portfolio-card__body">
+          <div class="portfolio-card__category">Mobile</div>
+          <h3 class="portfolio-card__title">Delivery App</h3>
+          <p class="portfolio-card__desc">Full-featured food delivery mobile app with GPS tracking, push notifications, and real-time order management.</p>
+          <div class="portfolio-card__tech">
+            <span class="portfolio-card__tech-tag">React Native</span>
+            <span class="portfolio-card__tech-tag">Firebase</span>
+            <span class="portfolio-card__tech-tag">Google Maps</span>
+          </div>
+          <div class="portfolio-card__links">
+            <a href="#" class="portfolio-card__link">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section class="section portfolio" id="portfolio">
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section" id="testimonials" aria-label="Client Testimonials">
   <div class="container">
-    <div class="fade-up" style="text-align:center;">
-      <span class="section-label">أعمالنا</span>
-      <h2 class="section-title">مشاريع سلّمناها <span class="gradient-text">بالفعل</span></h2>
-      <p class="section-subtitle" style="margin:0 auto;">مش كلام — ده شغل حقيقي لعملاء حقيقيين.</p>
-    </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-card fade-up">
-        <div class="portfolio-thumb">
-          <img src="assets/sharkawy_grill.png" alt="El Sharkawy Grill" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="portfolio-body">
-          <span class="portfolio-tag">موقع مطعم</span>
-          <div class="portfolio-name">مطعم الشرقاوي للمشويات</div>
-          <div class="portfolio-desc">موقع مطعم عربي أصيل بتصميم كلاسيكي، عرض منيو تفاعلي للمشويات.</div>
-          <a href="#" class="portfolio-link">شوف المشروع ←</a>
-        </div>
-      </div>
-      <div class="portfolio-card fade-up">
-        <div class="portfolio-thumb">
-          <img src="assets/tx_cafe.png" alt="TX Cafe QR Menu" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="portfolio-body">
-          <span class="portfolio-tag">سيستم QR + موقع</span>
-          <div class="portfolio-name">TX Cafe</div>
-          <div class="portfolio-desc">كافيه عصري بنظام QR كامل ومنيو ديجيتال وداشبورد أوردرات Real-time.</div>
-          <a href="#" class="portfolio-link">شوف المشروع ←</a>
-        </div>
-      </div>
-      <div class="portfolio-card fade-up">
-        <div class="portfolio-thumb">
-          <img src="assets/smoke_grill.png" alt="The Smoke Grill" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="portfolio-body">
-          <span class="portfolio-tag">موقع مطعم</span>
-          <div class="portfolio-name">The Smoke Grill</div>
-          <div class="portfolio-desc">موقع مطعم مشويات بتصميم premium، منيو تفاعلي وطلب مباشر عبر واتساب.</div>
-          <a href="#" class="portfolio-link">شوف المشروع ←</a>
-        </div>
-      </div>
-      <div class="portfolio-card fade-up">
-        <div class="portfolio-thumb">
-          <img src="assets/real_estate_dashboard.png" alt="Real Estate Platform" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="portfolio-body">
-          <span class="portfolio-tag">نظام عقارات</span>
-          <div class="portfolio-name">منصة إدارة عقارية</div>
-          <div class="portfolio-desc">لوحة تحكم لإدارة الوحدات والإيجارات والعملاء مع تقارير مالية شهرية.</div>
-          <a href="#" class="portfolio-link">شوف المشروع ←</a>
-        </div>
-      </div>
-      <div class="portfolio-card fade-up">
-        <div class="portfolio-thumb">
-          <img src="assets/transit_app.png" alt="TransitWay Dashboard" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="portfolio-body">
-          <span class="portfolio-tag">نظام مواصلات</span>
-          <div class="portfolio-name">TransitWay</div>
-          <div class="portfolio-desc">نظام مواصلات ذكي بتتبع GPS فوري، تذاكر QR، ودفع إلكتروني.</div>
-          <a href="#" class="portfolio-link">شوف المشروع ←</a>
-        </div>
-      </div>
-      <div class="portfolio-card fade-up">
-        <div class="portfolio-thumb">
-          <img src="assets/delivery_app.png" alt="Mobile App" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="portfolio-body">
-          <span class="portfolio-tag">موبايل أبليكيشن</span>
-          <div class="portfolio-name">تطبيق توصيل طلبات</div>
-          <div class="portfolio-desc">تطبيق موبايل كامل لتوصيل طلبات المطاعم مع GPS tracking وإشعارات.</div>
-          <a href="#" class="portfolio-link">شوف المشروع ←</a>
-        </div>
-      </div>
+    <div class="section-header">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-title">What Our Clients <span class="gradient-text">Say</span></h2>
+      <p class="section-subtitle">Don't take our word for it — hear directly from the businesses we've helped transform.</p>
     </div>
   </div>
-</section>
 
-<!-- PRICING -->
-<section class="section pricing" id="pricing">
-  <div class="container">
-    <div class="fade-up" style="text-align:center;">
-      <span class="section-label">الأسعار</span>
-      <h2 class="section-title">باقات <span class="gradient-text">واضحة</span> بدون مفاجآت</h2>
-      <p class="section-subtitle" style="margin:0 auto;">سعر ثابت من الأول — ادفع 50% بس والباقي عند رضاك الكامل!</p>
-    </div>
-    <div class="pricing-grid">
-      <!-- Starter -->
-      <div class="pricing-card fade-up">
-        <div class="pricing-tier">Starter</div>
-        <div class="pricing-name">موقع احترافي</div>
-        <div class="pricing-desc">للمطاعم والكافيهات اللي عايزة موقع رقمي احترافي يلفت الانتباه</div>
-        <div class="pricing-price">
-          <div class="price-old">EGP 8,000</div>
-          <div class="price-amount"><span class="price-currency">EGP </span>7,000</div>
-          <div class="price-period">دفعة واحدة — خصم 1,000 جنيه لفترة محدودة</div>
+  <div class="testimonials__slider">
+    <div class="testimonials__track">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"Dev Blue Tech transformed our entire ordering system. We went from paper menus to a full QR ordering system in just 5 days. Orders increased by 40% in the first month."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #2563EB, #60A5FA);">A</div>
+          <div>
+            <div class="testimonial-card__name">Ahmed Hassan</div>
+            <div class="testimonial-card__role">Owner, TX Cafe</div>
+          </div>
         </div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span>موقع كامل بتصميم مخصوص</li>
-          <li><span class="check">✓</span>منيو تفاعلي بتبويبات + صور</li>
-          <li><span class="check">✓</span>سلة طلبات + طلب واتساب مباشر</li>
-          <li><span class="check">✓</span>متجاوب 100% مع كل الأجهزة</li>
-          <li><span class="check">✓</span>دومين + هوستنج + SSL</li>
-          <li><span class="check">✓</span>سيو متقدم + Google Analytics</li>
-          <li><span class="check">✓</span>تسليم خلال 3-7 أيام</li>
-          <li><span class="cross">✗</span>داشبورد تحكم</li>
-          <li><span class="cross">✗</span>سيستم أوردرات</li>
-        </ul>
-        <a href="https://wa.me/201021858848?text=مرحبا،%20عايز%20باقة%20الموقع%20الاحترافي%20(7,000%20جنيه)" class="btn-ghost pricing-cta" target="_blank">ابدأ دلوقتي</a>
       </div>
-      <!-- Pro -->
-      <div class="pricing-card featured fade-up">
-        <div class="pricing-badge">الأكثر طلباً</div>
-        <div class="pricing-tier">Pro</div>
-        <div class="pricing-name">سيستم كامل</div>
-        <div class="pricing-desc">للمطاعم والكافيهات اللي عايزة سيستم QR + داشبورد + أوردرات</div>
-        <div class="pricing-price">
-          <div class="price-old">EGP 18,000</div>
-          <div class="price-amount"><span class="price-currency">EGP </span>15,000</div>
-          <div class="price-period">دفعة واحدة + صيانة شهرية</div>
-        </div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span>كل حاجة في باقة الموقع</li>
-          <li><span class="check">✓</span>داشبورد تحكم كاملة</li>
-          <li><span class="check">✓</span>سيستم أوردرات Real-time</li>
-          <li><span class="check">✓</span>QR code لكل ترابيزة</li>
-          <li><span class="check">✓</span>تقارير مبيعات تفصيلية</li>
-          <li><span class="check">✓</span>إشعارات فورية صوتية</li>
-          <li><span class="check">✓</span>تدريب كامل على النظام</li>
-          <li><span class="check">✓</span>دعم فني أولوية</li>
-          <li><span class="cross">✗</span>كاشير POS</li>
-        </ul>
-        <a href="https://wa.me/201021858848?text=مرحبا،%20عايز%20الباقة%20الاحترافية%20(15,000%20جنيه)" class="btn-primary pricing-cta" target="_blank">ابدأ دلوقتي</a>
-      </div>
-      <!-- Enterprise -->
-      <div class="pricing-card fade-up">
-        <div class="pricing-tier">Enterprise</div>
-        <div class="pricing-name">حل متكامل</div>
-        <div class="pricing-desc">للبيزنس اللي محتاج كل حاجة — موقع + سيستم + كاشير + أبليكيشن</div>
-        <div class="pricing-price">
-          <div class="price-amount"><span class="price-currency">EGP </span>25,000<span style="font-size:20px;color:var(--gray);">+</span></div>
-          <div class="price-period">حسب حجم وتعقيد المشروع</div>
-        </div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span>كل حاجة في الباقة الاحترافية</li>
-          <li><span class="check">✓</span>كاشير POS + طباعة فواتير</li>
-          <li><span class="check">✓</span>نظام إدارة مخزون متقدم</li>
-          <li><span class="check">✓</span>إدارة موظفين وشيفتات</li>
-          <li><span class="check">✓</span>موبايل أبليكيشن (Android + iOS)</li>
-          <li><span class="check">✓</span>ربط أنظمة الدفع الإلكتروني</li>
-          <li><span class="check">✓</span>دعم أولوية 24/7</li>
-          <li><span class="check">✓</span>تطوير مستمر + تحديثات</li>
-          <li><span class="check">✓</span>استشارة تقنية شهرية</li>
-        </ul>
-        <a href="https://wa.me/201021858848?text=مرحبا،%20عايز%20الباقة%20المتكاملة%20(Enterprise)" class="btn-ghost pricing-cta" target="_blank">اتكلم معانا</a>
-      </div>
-    </div>
 
-    <!-- Add-ons -->
-    <div class="pricing-extra fade-up">
-      <div class="pricing-extra-title">إضافات اختيارية</div>
-      <div class="pricing-extra-sub">زوّد مشروعك بخدمات إضافية حسب احتياجك</div>
-      <div class="addons-grid">
-        <div class="addon-card">
-          <div class="addon-icon"><div style="width:20px;height:30px;border-radius:6px;border:2px solid var(--blue);margin:0 auto;"></div></div>
-          <div class="addon-name">موبايل أبليكيشن</div>
-          <div class="addon-price">من 30,000 جنيه</div>
-        </div>
-        <div class="addon-card">
-          <div class="addon-icon"><div style="width:30px;height:20px;border-radius:10px;border:2px solid var(--cyan);margin:0 auto;"></div></div>
-          <div class="addon-name">دومين مخصص (.com)</div>
-          <div class="addon-price">500 جنيه / سنة</div>
-        </div>
-        <div class="addon-card">
-          <div class="addon-icon"><div style="width:20px;height:20px;background:var(--cyan);clip-path:polygon(50% 0%, 100% 100%, 0% 100%);margin:0 auto;"></div></div>
-          <div class="addon-name">تقارير متقدمة + Analytics</div>
-          <div class="addon-price">2,000 جنيه</div>
-        </div>
-        <div class="addon-card">
-          <div class="addon-icon"><div style="width:24px;height:24px;border:2px dashed var(--blue);margin:0 auto;"></div></div>
-          <div class="addon-name">طباعة حرارية للفواتير</div>
-          <div class="addon-price">1,500 جنيه</div>
-        </div>
-        <div class="addon-card">
-          <div class="addon-icon"><div style="width:24px;height:24px;border-radius:50%;border:2px solid #25D366;margin:0 auto;"></div></div>
-          <div class="addon-name">ربط واتساب API متقدم</div>
-          <div class="addon-price">2,000 جنيه</div>
-        </div>
-        <div class="addon-card">
-          <div class="addon-icon"><div style="width:24px;height:24px;background:linear-gradient(45deg, var(--blue), var(--cyan));border-radius:4px;margin:0 auto;"></div></div>
-          <div class="addon-name">تصميم هوية بصرية كاملة</div>
-          <div class="addon-price">من 5,000 جنيه</div>
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"The real estate dashboard they built is incredible. Clean interface, powerful analytics, and it handles all our property management needs perfectly. Highly recommended!"</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #818CF8, #60A5FA);">M</div>
+          <div>
+            <div class="testimonial-card__name">Mohamed Samir</div>
+            <div class="testimonial-card__role">CEO, Samir Properties</div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- SYSTEM HIGHLIGHT -->
-<section class="section system-highlight" id="testimonials">
-  <div class="container">
-    <div class="highlight-box fade-up">
-      <h2 class="highlight-title">بتخسر أوردرات بسبب زحمة الكاشير؟<br><span style="color:var(--gray);font-size:24px;">منيو مطعمك لسه ورق وبيتقطع؟</span></h2>
-      <p class="highlight-desc"><strong style="color:var(--cyan);">Dev Blue Tech</strong> بتقدملك سيستم متكامل هيوفرلك فلوس الطباعة ويسرع الشغل.</p>
-      <div class="highlight-features">
-        <div class="hf-item"><div style="width:12px;height:12px;border-radius:50%;background:var(--cyan);"></div> وفر فلوسك بدون طباعة</div>
-        <div class="hf-item"><div style="width:12px;height:12px;border-radius:50%;background:var(--cyan);"></div> سرعة في إستقبال الأوردرات</div>
-        <div class="hf-item"><div style="width:12px;height:12px;border-radius:50%;background:var(--cyan);"></div> تقارير دقيقة وتحكم كامل</div>
-        <div class="hf-item"><div style="width:12px;height:12px;border-radius:50%;background:var(--cyan);"></div> أمان بياناتك في السحابة</div>
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"Working with Dev Blue Tech felt like having an in-house tech team. They understood our vision from day one and delivered a mobile app that our users love."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #22C55E, #60A5FA);">S</div>
+          <div>
+            <div class="testimonial-card__name">Sara Khalil</div>
+            <div class="testimonial-card__role">Founder, TransitWay</div>
+          </div>
+        </div>
       </div>
-      <a href="#contact" class="btn-primary" style="margin-top:16px;">اطلب نسختك التجريبية دلوقتي</a>
-    </div>
-  </div>
-</section>
 
-<!-- WHY US -->
-<section class="section why-us" id="why">
-  <div class="container">
-    <div class="why-grid">
-      <div>
-        <span class="section-label">ليه Dev Blue Tech</span>
-        <h2 class="section-title">مش بنبيع مواقع —<br><span class="gradient-text">بنبني حلول</span></h2>
-        <div class="why-list">
-          <div class="why-item fade-up">
-            <div class="why-icon"><div style="width:20px;height:20px;background:var(--cyan);clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div></div>
-            <div class="why-content">
-              <h4>تسليم في 3-7 أيام</h4>
-              <p>مفيش تأخير. بنحدد موعد ونلتزم بيه — وقتك أهم حاجة عندنا.</p>
-            </div>
-          </div>
-          <div class="why-item fade-up">
-            <div class="why-icon"><div style="width:20px;height:20px;border-radius:50%;border:2px solid var(--blue);"></div></div>
-            <div class="why-content">
-              <h4>تواصل مباشر على واتساب</h4>
-              <p>بتتكلم مع المطوّر اللي شايل مشروعك بنفسه — 01021858848.</p>
-            </div>
-          </div>
-          <div class="why-item fade-up">
-            <div class="why-icon"><div style="width:20px;height:20px;border-radius:4px;background:var(--blue);"></div></div>
-            <div class="why-content">
-              <h4>مخصوص ليك — مفيش قوالب</h4>
-              <p>كل مشروع بيتبني من الصفر على حسب هوية شغلك وطبيعة عملائك.</p>
-            </div>
-          </div>
-          <div class="why-item fade-up">
-            <div class="why-icon"><div style="width:14px;height:24px;border-radius:4px;border:2px solid var(--cyan);"></div></div>
-            <div class="why-content">
-              <h4>مواقع + موبايل أبليكيشن</h4>
-              <p>بنقدم حلول كاملة — من الموقع للأبليكيشن للسيستم كلّه.</p>
-            </div>
-          </div>
-          <div class="why-item fade-up">
-            <div class="why-icon"><div style="width:20px;height:20px;border-radius:50%;border:2px dashed var(--blue);"></div></div>
-            <div class="why-content">
-              <h4>تعديلات غير محدودة + دعم مستمر</h4>
-              <p>بنفضل معك للتعديلات والتطوير طول فترة الاشتراك — مش بنسلّم ونمشي.</p>
-            </div>
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"Best investment we made for our restaurant. The website looks premium, the QR system saves us 3 hours daily, and the support team responds instantly. A+ experience."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #F59E0B, #EF4444);">K</div>
+          <div>
+            <div class="testimonial-card__name">Karim El-Sharkawy</div>
+            <div class="testimonial-card__role">Owner, El Sharkawy Grill</div>
           </div>
         </div>
       </div>
-      <div class="why-visual fade-up">
-        <p style="font-size:14px;color:var(--gray);margin-bottom:8px;">📊 أرقام من مشاريع حقيقية</p>
-        <div class="metric-row">
-          <span class="metric-label">متوسط زيادة الطلبات</span>
-          <span class="metric-value">+40%</span>
+
+      <!-- Testimonial 5 -->
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"They delivered a complex POS system that handles our entire operation — inventory, billing, employee management. It just works, and they're always available for support."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #EC4899, #8B5CF6);">Y</div>
+          <div>
+            <div class="testimonial-card__name">Youssef Nabil</div>
+            <div class="testimonial-card__role">Manager, Smoke Grill</div>
+          </div>
         </div>
-        <div class="metric-row">
-          <span class="metric-label">توفير وقت الموظفين يومياً</span>
-          <span class="metric-value">3 ساعات</span>
+      </div>
+
+      <!-- Duplicate set for seamless loop -->
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"Dev Blue Tech transformed our entire ordering system. We went from paper menus to a full QR ordering system in just 5 days. Orders increased by 40% in the first month."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #2563EB, #60A5FA);">A</div>
+          <div>
+            <div class="testimonial-card__name">Ahmed Hassan</div>
+            <div class="testimonial-card__role">Owner, TX Cafe</div>
+          </div>
         </div>
-        <div class="metric-row">
-          <span class="metric-label">رضا العملاء</span>
-          <span class="metric-value">100%</span>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"The real estate dashboard they built is incredible. Clean interface, powerful analytics, and it handles all our property management needs perfectly. Highly recommended!"</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #818CF8, #60A5FA);">M</div>
+          <div>
+            <div class="testimonial-card__name">Mohamed Samir</div>
+            <div class="testimonial-card__role">CEO, Samir Properties</div>
+          </div>
         </div>
-        <div class="metric-row">
-          <span class="metric-label">متوسط وقت التسليم</span>
-          <span class="metric-value">5 أيام</span>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"Working with Dev Blue Tech felt like having an in-house tech team. They understood our vision from day one and delivered a mobile app that our users love."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #22C55E, #60A5FA);">S</div>
+          <div>
+            <div class="testimonial-card__name">Sara Khalil</div>
+            <div class="testimonial-card__role">Founder, TransitWay</div>
+          </div>
         </div>
-        <div class="metric-row">
-          <span class="metric-label">سنين خبرة</span>
-          <span class="metric-value">+5 سنين</span>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"Best investment we made for our restaurant. The website looks premium, the QR system saves us 3 hours daily, and the support team responds instantly. A+ experience."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #F59E0B, #EF4444);">K</div>
+          <div>
+            <div class="testimonial-card__name">Karim El-Sharkawy</div>
+            <div class="testimonial-card__role">Owner, El Sharkawy Grill</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"They delivered a complex POS system that handles our entire operation — inventory, billing, employee management. It just works, and they're always available for support."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #EC4899, #8B5CF6);">Y</div>
+          <div>
+            <div class="testimonial-card__name">Youssef Nabil</div>
+            <div class="testimonial-card__role">Manager, Smoke Grill</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section faq" id="faq">
+<!-- ===== TEAM ===== -->
+<section class="section" id="team" aria-label="Our Team">
   <div class="container">
-    <div class="fade-up">
-      <span class="section-label">أسئلة شائعة</span>
-      <h2 class="section-title">عندك سؤال؟</h2>
+    <div class="section-header">
+      <span class="section-label">Our Team</span>
+      <h2 class="section-title">The Minds <span class="gradient-text">Behind the Code</span></h2>
+      <p class="section-subtitle">A passionate team of engineers, designers, and strategists dedicated to building exceptional digital products.</p>
     </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          كام يوم لحد ما المشروع يتسلم؟
-          <div class="faq-arrow">▼</div>
-        </button>
-        <div class="faq-answer"><p>المواقع بتتسلم في 3-7 أيام، والأنظمة المتكاملة (كاشير، QR، داشبورد) بتاخد من 7 لـ 14 يوم حسب التعقيد. بنحدد الموعد من أول يوم ونلتزم بيه.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          هل بتعملوا موبايل أبليكيشن؟
-          <div class="faq-arrow">▼</div>
-        </button>
-        <div class="faq-answer"><p>أيوه! بنعمل موبايل أبليكيشن Android و iOS باستخدام React Native و Flutter. التطبيق بيكون سريع واحترافي وبيتنشر على Google Play و App Store. الأسعار بتبدأ من 15,000 جنيه.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          هقدر أعدّل المنيو والأسعار لوحدي بعد التسليم؟
-          <div class="faq-arrow">▼</div>
-        </button>
-        <div class="faq-answer"><p>أيوه في الباقة Pro والـ Enterprise — بيكون عندك لوحة تحكم بتعدّل فيها المنيو والأسعار والصور بضغطة زرار بدون أي كود. في الباقة Starter بنعمل التعديلات دي عنك بسرعة.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          إيه الفرق بين QR Order وسيستم الكاشير؟
-          <div class="faq-arrow">▼</div>
-        </button>
-        <div class="faq-answer"><p>QR Order: العميل نفسه بيطلب من موبايله. سيستم الكاشير: للموظف اللي بيسجّل الأوردرات وبيصدر فواتير وبيتابع المخزون. ممكن نجمع الاتنين في مشروع واحد.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          إيه طريقة الدفع وامتى بندفع؟
-          <div class="faq-arrow">▼</div>
-        </button>
-        <div class="faq-answer"><p>50% في البداية و50% عند التسليم والرضا الكامل. بنستقبل Instapay، تحويل بنكي، فودافون كاش، أو كاش. مفيش دفع كامل قبل ما تشوف الشغل وتوافق عليه.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          بتشتغلوا مع مشاريع برّه مصر؟
-          <div class="faq-arrow">▼</div>
-        </button>
-        <div class="faq-answer"><p>أيوه طبعاً! بنشتغل أونلاين وعندنا عملاء في مصر والسعودية والإمارات. التواصل على واتساب 01021858848 — متاحين 24/7.</p></div>
-      </div>
+
+    <div class="team__grid">
+      <article class="team-card">
+        <div class="team-card__avatar" style="background: linear-gradient(135deg, #2563EB, #1D4ED8);">
+          <span style="position:relative;z-index:1;">CEO</span>
+        </div>
+        <h3 class="team-card__name">Ahmed Mostafa</h3>
+        <div class="team-card__role">Founder & CEO</div>
+        <p class="team-card__bio">Full-stack developer with 5+ years of experience leading digital transformation projects across the MENA region.</p>
+        <div class="team-card__socials">
+          <a href="#" class="team-card__social" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+          </a>
+          <a href="#" class="team-card__social" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card__avatar" style="background: linear-gradient(135deg, #818CF8, #6366F1);">
+          <span style="position:relative;z-index:1;">CTO</span>
+        </div>
+        <h3 class="team-card__name">Omar Khalil</h3>
+        <div class="team-card__role">CTO & Lead Engineer</div>
+        <p class="team-card__bio">Systems architect specializing in cloud-native applications, microservices, and scalable backend infrastructure.</p>
+        <div class="team-card__socials">
+          <a href="#" class="team-card__social" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+          </a>
+          <a href="#" class="team-card__social" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card__avatar" style="background: linear-gradient(135deg, #EC4899, #F43F5E);">
+          <span style="position:relative;z-index:1;">UX</span>
+        </div>
+        <h3 class="team-card__name">Nour Ibrahim</h3>
+        <div class="team-card__role">Lead UI/UX Designer</div>
+        <p class="team-card__bio">Award-winning designer creating intuitive, beautiful interfaces that turn complex workflows into delightful experiences.</p>
+        <div class="team-card__socials">
+          <a href="#" class="team-card__social" aria-label="Dribbble">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308a10.174 10.174 0 0 0 4.392-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4a10.143 10.143 0 0 0 6.29 2.166c1.42 0 2.77-.29 4.006-.816zm-11.62-2.58c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248a65.473 65.473 0 0 0-3.8-5.928 10.177 10.177 0 0 0-5.676 7.17zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702A10.15 10.15 0 0 0 12 1.822c-.824 0-1.63.076-2.4.23zm10.335 3.483c-.218.29-1.89 2.478-5.64 4.023.24.49.47.985.68 1.486.08.18.15.36.22.53 3.41-.43 6.8.26 7.14.33-.02-2.42-.88-4.64-2.4-6.37z"/></svg>
+          </a>
+          <a href="#" class="team-card__social" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card__avatar" style="background: linear-gradient(135deg, #22C55E, #16A34A);">
+          <span style="position:relative;z-index:1;">DEV</span>
+        </div>
+        <h3 class="team-card__name">Hassan Rady</h3>
+        <div class="team-card__role">Senior Mobile Developer</div>
+        <p class="team-card__bio">Mobile-first engineer building high-performance cross-platform apps with React Native and Flutter for iOS and Android.</p>
+        <div class="team-card__socials">
+          <a href="#" class="team-card__social" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+          </a>
+          <a href="#" class="team-card__social" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
+<!-- ===== CTA SECTION ===== -->
+<section class="cta-section" aria-label="Call to Action">
   <div class="container">
-    <h2 class="cta-title">جاهز تبدأ مشروعك؟ <span class="gradient-text">كلّمنا دلوقتي</span></h2>
-    <p class="cta-sub">استشارة مجانية — بنفهم احتياجاتك ونبعتلك عرض سعر في 24 ساعة بدون أي التزام.<br><strong style="color:var(--white);">📞 01021858848</strong></p>
-    <div class="cta-actions">
-      <a href="https://wa.me/201021858848?text=مرحبا،%20أنا%20مهتم%20بخدمات%20Dev%20Blue%20Tech" class="btn-whatsapp" target="_blank">واتساب دلوقتي</a>
-      <a href="#contact" class="btn-ghost">ابعت طلبك</a>
+    <h2 class="cta__title">Ready to Build Something <span class="gradient-text">Amazing?</span></h2>
+    <p class="cta__subtitle">Free consultation — we'll analyze your requirements and send a detailed proposal within 24 hours. No commitment required.</p>
+    <div class="cta__actions">
+      <a href="https://wa.me/201021858848?text=Hello%20Dev%20Blue%20Tech%20%F0%9F%91%8B%20I'm%20interested%20in%20starting%20a%20project" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <a href="#contact" class="btn btn--ghost">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Send a Request
+      </a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section contact" id="contact">
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact" aria-label="Contact Us">
   <div class="container">
-    <div class="fade-up">
-      <span class="section-label">تواصل معنا</span>
-      <h2 class="section-title">ابدأ مشروعك</h2>
-      <p class="section-subtitle">ابعتلنا تفاصيل مشروعك وهنرد عليك في أقل من 24 ساعة.</p>
+    <div class="section-header">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">Let's Start Your <span class="gradient-text">Project</span></h2>
+      <p class="section-subtitle">Send us your project details and we'll get back to you within 24 hours with a detailed proposal.</p>
     </div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-item fade-up">
-          <div class="contact-icon"><div style="width:16px;height:24px;border-radius:4px;border:2px solid var(--cyan);"></div></div>
-          <div class="contact-detail">
-            <h4>واتساب</h4>
-            <p><a href="https://wa.me/201021858848" target="_blank">01021858848</a></p>
+
+    <div class="contact__grid">
+      <div class="contact__info">
+        <div class="contact__info-card">
+          <div class="contact__info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div>
+            <div class="contact__info-label">WhatsApp</div>
+            <div class="contact__info-value"><a href="https://wa.me/201021858848" target="_blank" rel="noopener noreferrer">+20 102 185 8848</a></div>
           </div>
         </div>
-        <div class="contact-item fade-up">
-          <div class="contact-icon"><div style="width:20px;height:20px;border-radius:50%;border:2px solid var(--blue);"></div></div>
-          <div class="contact-detail">
-            <h4>اتصل بينا</h4>
-            <p><a href="tel:+201021858848">01021858848</a></p>
+
+        <div class="contact__info-card">
+          <div class="contact__info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact__info-label">Phone</div>
+            <div class="contact__info-value"><a href="tel:+201021858848">+20 102 185 8848</a></div>
           </div>
         </div>
-        <div class="contact-item fade-up">
-          <div class="contact-icon"><div style="width:24px;height:16px;border-radius:4px;border:2px solid var(--cyan);"></div></div>
-          <div class="contact-detail">
-            <h4>إيميل</h4>
-            <p>devblue.tec@gmail.com</p>
+
+        <div class="contact__info-card">
+          <div class="contact__info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="contact__info-label">Email</div>
+            <div class="contact__info-value"><a href="mailto:devblue.tec@gmail.com">devblue.tec@gmail.com</a></div>
           </div>
         </div>
-        <div class="contact-item fade-up">
-          <div class="contact-icon"><div style="width:20px;height:20px;background:var(--blue);clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div></div>
-          <div class="contact-detail">
-            <h4>الموقع</h4>
-            <p>مصر — نشتغل أونلاين في كل مكان</p>
+
+        <div class="contact__info-card">
+          <div class="contact__info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact__info-label">Location</div>
+            <div class="contact__info-value">Egypt — Working Remotely Worldwide</div>
           </div>
         </div>
-        <div class="contact-item fade-up">
-          <div class="contact-icon"><div style="width:20px;height:20px;border-radius:50%;border:2px dashed var(--cyan);"></div></div>
-          <div class="contact-detail">
-            <h4>ساعات العمل</h4>
-            <p>السبت – الخميس | 10 ص – 10 م</p>
+
+        <div class="contact__info-card">
+          <div class="contact__info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
+          <div>
+            <div class="contact__info-label">Working Hours</div>
+            <div class="contact__info-value">Sat – Thu, 10 AM – 10 PM (EET)</div>
+          </div>
+        </div>
+
+        <div class="contact__map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.5!2d31.2357!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzM5LjgiTiAzMcKwMTQnMDguNSJF!5e0!3m2!1sen!2seg!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Dev Blue Tech Location"></iframe>
+        </div>
+
+        <div class="contact__socials">
+          <a href="https://github.com/devbluetech" class="contact__social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61590696542144" class="contact__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="contact__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="contact__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
         </div>
       </div>
-      <div class="contact-form fade-up">
+
+      <div class="contact__form">
+        <h3 class="contact__form-title">Send Us a Message</h3>
+        <p class="contact__form-subtitle">Fill out the form and we'll get back to you within 24 hours.</p>
+
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="contact-name">الاسم</label>
-            <input type="text" id="contact-name" class="form-input" placeholder="اسمك الكريم">
+            <label class="form-label" for="contactName">Full Name</label>
+            <input type="text" id="contactName" class="form-input" placeholder="Your full name" required>
           </div>
           <div class="form-group">
-            <label class="form-label" for="contact-phone">رقم الواتساب</label>
-            <input type="tel" id="contact-phone" class="form-input" placeholder="01xxxxxxxxx">
+            <label class="form-label" for="contactEmail">Email Address</label>
+            <input type="email" id="contactEmail" class="form-input" placeholder="your@email.com" required>
           </div>
         </div>
+
         <div class="form-group">
-          <label class="form-label" for="contact-service">نوع المشروع</label>
-          <select id="contact-service" class="form-select">
-            <option value="" disabled selected>اختر الخدمة</option>
-            <option>موقع مطعم (من 7,000 ج)</option>
-            <option>سيستم QR كافيه (من 12,000 ج)</option>
-            <option>سيستم كاشير POS (من 18,000 ج)</option>
-            <option>موبايل أبليكيشن (من 30,000 ج)</option>
-            <option>نظام بيزنس متخصص (من 20,000 ج)</option>
-            <option>صيانة ودعم شهري (من 1,000 ج)</option>
-            <option>غير ذلك</option>
+          <label class="form-label" for="contactService">Service Needed</label>
+          <select id="contactService" class="form-select">
+            <option value="" disabled selected>Select a service</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Mobile App">Mobile App Development</option>
+            <option value="UI/UX Design">UI/UX Design</option>
+            <option value="Backend/API">Backend & API Development</option>
+            <option value="AI Solutions">AI Solutions</option>
+            <option value="Cloud Services">Cloud Services</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+            <option value="Other">Other</option>
           </select>
         </div>
+
         <div class="form-group">
-          <label class="form-label" for="contact-message">تفاصيل مشروعك</label>
-          <textarea id="contact-message" class="form-textarea" placeholder="احكيلنا عن شغلك وإيه اللي محتاجه..."></textarea>
+          <label class="form-label" for="contactMessage">Project Details</label>
+          <textarea id="contactMessage" class="form-textarea" placeholder="Tell us about your project, goals, and timeline..."></textarea>
         </div>
-        <button class="btn-primary form-submit" onclick="submitForm()">ابعت الطلب على واتساب</button>
+
+        <button class="btn btn--primary" style="width:100%;justify-content:center;" onclick="submitContactForm()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="m22 2-11 11"/></svg>
+          Send Message
+        </button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
+<!-- ===== FOOTER ===== -->
+<footer class="footer" role="contentinfo">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#home" class="logo">
-          <img src="assets/logo.png" alt="Dev Blue Tech" class="logo-img" loading="lazy">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="#home" class="navbar__logo">
+          <img src="assets/logo.png" alt="Dev Blue Tech" width="140" height="36" loading="lazy">
         </a>
-        <p>Dev Blue Tech شريكك التقني للنجاح. نقدم حلولاً برمجية متطورة وأنظمة إدارة ذكية ترتقي بأعمالك إلى آفاق جديدة. صُممت أنظمتنا لتوفير الوقت، تقليل التكاليف، وزيادة الأرباح بفاعلية وأمان.</p>
-        <div class="footer-social">
-          <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-          <a href="https://www.facebook.com/profile.php?id=61590696542144" class="social-link" aria-label="Facebook" target="_blank">f</a>
-          <a href="#" class="social-link" aria-label="Instagram">ig</a>
-          <a href="https://wa.me/201021858848" class="social-link" aria-label="WhatsApp" target="_blank">wa</a>
+        <p>Dev Blue Tech is your trusted technology partner. We deliver premium software solutions — web apps, mobile apps, AI integrations, and cloud infrastructure — that drive real business growth.</p>
+        <div class="footer__socials">
+          <a href="https://github.com/devbluetech" class="footer__social" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61590696542144" class="footer__social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>الخدمات</h4>
-        <ul class="footer-links">
-          <li><a href="#services">موقع مطعم — من 7,000 ج</a></li>
-          <li><a href="#services">سيستم QR — من 12,000 ج</a></li>
-          <li><a href="#services">كاشير POS — من 18,000 ج</a></li>
-          <li><a href="#services">موبايل أبليكيشن — من 15,000 ج</a></li>
-          <li><a href="#services">أنظمة متخصصة — من 20,000 ج</a></li>
+
+      <div>
+        <h4 class="footer__col-title">Quick Links</h4>
+        <ul class="footer__links">
+          <li><a href="#services" class="footer__link">Services</a></li>
+          <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
+          <li><a href="#process" class="footer__link">Our Process</a></li>
+          <li><a href="#testimonials" class="footer__link">Testimonials</a></li>
+          <li><a href="#team" class="footer__link">Our Team</a></li>
+          <li><a href="#contact" class="footer__link">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>الشركة</h4>
-        <ul class="footer-links">
-          <li><a href="#portfolio">أعمالنا</a></li>
-          <li><a href="#process">كيف نشتغل</a></li>
-          <li><a href="#pricing">الأسعار والباقات</a></li>
-          <li><a href="#testimonials">آراء العملاء</a></li>
-          <li><a href="#faq">أسئلة شائعة</a></li>
+
+      <div>
+        <h4 class="footer__col-title">Services</h4>
+        <ul class="footer__links">
+          <li><a href="#services" class="footer__link">Web Development</a></li>
+          <li><a href="#services" class="footer__link">Mobile Apps</a></li>
+          <li><a href="#services" class="footer__link">UI/UX Design</a></li>
+          <li><a href="#services" class="footer__link">AI Solutions</a></li>
+          <li><a href="#services" class="footer__link">Cloud Services</a></li>
+          <li><a href="#services" class="footer__link">API Development</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>تواصل</h4>
-        <ul class="footer-links">
-          <li><a href="https://wa.me/201021858848" target="_blank">واتساب — 01021858848</a></li>
-          <li><a href="tel:+201021858848">اتصل بينا</a></li>
-          <li><a href="mailto:devblue.tec@gmail.com">devblue.tec@gmail.com</a></li>
-          <li><a href="#contact">ابعت طلب</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590696542144" target="_blank">فيسبوك</a></li>
+
+      <div>
+        <h4 class="footer__col-title">Contact</h4>
+        <ul class="footer__links">
+          <li><a href="https://wa.me/201021858848" class="footer__link" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li><a href="tel:+201021858848" class="footer__link">+20 102 185 8848</a></li>
+          <li><a href="mailto:devblue.tec@gmail.com" class="footer__link">devblue.tec@gmail.com</a></li>
+          <li><a href="https://github.com/devbluetech" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61590696542144" class="footer__link" target="_blank" rel="noopener noreferrer">Facebook</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2025 <span>Dev Blue Tech</span>. كل الحقوق محفوظة.</p>
-      <p class="footer-copy">صُنع بـ ❤️ بخبرة أكتر من 5 سنين | <span>Transforming Ideas Into Technology</span></p>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2025 <span>Dev Blue Tech</span>. All rights reserved.</p>
+      <div class="footer__bottom-links">
+        <a href="#" class="footer__bottom-link">Privacy Policy</a>
+        <a href="#" class="footer__bottom-link">Terms of Service</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/201021858848?text=مرحبا،%20أنا%20مهتم%20بخدمات%20Dev%20Blue%20Tech" class="wa-float" target="_blank" aria-label="تواصل معنا على واتساب">
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-  <span class="wa-tooltip">ابدأ محادثة — 01021858848</span>
+<!-- ===== WHATSAPP FAB ===== -->
+<a href="https://wa.me/201021858848?text=Hello%20Dev%20Blue%20Tech%20%F0%9F%91%8B" class="wa-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
 </a>
 
-<script>
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/main.js" defer></script>
 
-
-  // ===== NAVBAR SCROLL =====
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-
-  // ===== MOBILE MENU =====
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
-  }
-
-  // ===== FAQ =====
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-
-  // ===== SCROLL ANIMATIONS =====
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // ===== COUNTER ANIMATION =====
-  function animateCounters() {
-    document.querySelectorAll('.stat-num[data-target]').forEach(el => {
-      const target = parseInt(el.getAttribute('data-target'));
-      const suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
-      let current = 0;
-      const duration = 2000;
-      const step = target / (duration / 16);
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        el.innerHTML = Math.floor(current) + suffix;
-      }, 16);
-    });
-  }
-  const heroObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounters();
-        heroObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  const heroStats = document.querySelector('.hero-stats');
-  if (heroStats) heroObserver.observe(heroStats);
-
-  // ===== FORM SUBMIT =====
-  function submitForm() {
-    const name = document.getElementById('contact-name').value.trim();
-    const phone = document.getElementById('contact-phone').value.trim();
-    const service = document.getElementById('contact-service').value;
-    const msg = document.getElementById('contact-message').value.trim();
-    if (!name || !phone) { alert('من فضلك اكتب اسمك ورقم واتسابك.'); return; }
-    const text = encodeURIComponent(
-      `مرحبا Dev Blue Tech 👋\n━━━━━━━━━━━━━━\nالاسم: ${name}\nالرقم: ${phone}\nالخدمة: ${service || 'لم يحدد'}\nالتفاصيل: ${msg || 'لا يوجد'}\n━━━━━━━━━━━━━━\nمرسل من موقع Dev Blue Tech`
-    );
-    window.open(`https://wa.me/201021858848?text=${text}`, '_blank');
-  }
-
-  // ===== SMOOTH PAGE LOAD =====
-  document.addEventListener('DOMContentLoaded', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.6s ease';
-    requestAnimationFrame(() => { document.body.style.opacity = '1'; });
-  });
-</script>
 </body>
 </html>
